@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows Server 2025</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- Botão Home Minimalista -->
+<a href="/" class="home-btn" title="Voltar ao Portfólio">
+    <i class="fas fa-home"></i>
+</a>
+
+<header>
+  <h1 data-aos="fade-up">Windows Server 2025</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Active Directory • DNS • DHCP • Hyper-V • Serviços Corporativos
+  </p>
+</header>
+
+<main>
+  <!-- Layout Desktop: Foto acima, descrição abaixo -->
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/winserver.jpg">
+    </div>
+    
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Implementação completa de infraestrutura Windows Server 2025 com serviços empresariais para ambiente corporativo.</p>
+      
+      <div class="descricao-detalhada">
+          <h3>Active Directory Domain Services</h3>
+          <ul>
+              <li>Gestão centralizada de usuários, grupos e computadores</li>
+              <li>Políticas de Grupo (GPO) para padronização de ambientes</li>
+              <li>Autenticação integrada com Single Sign-On</li>
+              <li>Replicação multi-master entre controladores de domínio</li>
+              <li>LDAP para serviços de diretório</li>
+          </ul>
+          
+          <h3>Serviços de Rede</h3>
+          <ul>
+              <li><strong>DNS Server:</strong> Resolução de nomes interno e externo</li>
+              <li><strong>DHCP Server:</strong> Alocação automática de endereços IP</li>
+              <li><strong>File Services:</strong> Compartilhamentos SMB com permissões NTFS</li>
+              <li><strong>Print Services:</strong> Gerenciamento centralizado de impressão</li>
+              <li><strong>Remote Desktop Services:</strong> Acesso remoto a desktops e aplicações</li>
+          </ul>
+          
+          <h3>Virtualização com Hyper-V</h3>
+          <ul>
+              <li>Host de virtualização para máquinas Windows e Linux</li>
+              <li>Live Migration entre hosts físicos</li>
+              <li>Replicação de VMs para disaster recovery</li>
+              <li>Virtual Fibre Channel e SR-IOV para alta performance</li>
+              <li>Shielded VMs com criptografia completa</li>
+          </ul>
+          
+          <h3>Segurança e Compliance</h3>
+          <ul>
+              <li>Windows Defender ATP integrado</li>
+              <li>BitLocker para criptografia de volumes</li>
+              <li>Audit Logging e SIEM integration</li>
+              <li>Just Enough Administration (JEA)</li>
+              <li>Credential Guard e Device Guard</li>
+          </ul>
+          
+          <div style="margin-top: 20px;">
+              <span class="badge">Windows Server 2025 Datacenter</span>
+              <span class="badge">Active Directory</span>
+              <span class="badge">DNS/DHCP</span>
+              <span class="badge">Hyper-V</span>
+              <span class="badge">Group Policy</span>
+              <span class="badge">PowerShell</span>
+              <span class="badge">Failover Cluster</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nova Seção Documentação (CORRIGIDA) -->
+  <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+    <h2>Documentação</h2>
+    
+    <div class="tabs-header">
+        <button class="tab-btn active" data-tab="galeria">Galeria do Projeto</button>
+        <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+        <button class="tab-btn" data-tab="config">Configurações</button>
+    </div>
+    
+    <div class="tabs-content-container">
+        <div class="tab-content active" id="tab-galeria">
+            <p style="text-align: center;">Imagens e capturas de tela da implementação do Windows Server 2025:</p>
+            
+            <div class="galeria-projeto">
+                <div class="galeria-item">
+                    <img src="/assets/images/winserver-dashboard.jpg" alt="Dashboard Windows Admin Center">
+                    <div class="galeria-descricao">
+                        <strong>Tela de Bloqueio</strong><br>
+                        Interface moderna de gerenciamento do servidor
+                    </div>
+                </div>
+                
+                <div class="galeria-item">
+                    <img src="/assets/images/winserver-desktop.jpg" alt="Active Directory Users and Computers">
+                    <div class="galeria-descricao">
+                        <strong>Acesso Remoto</strong><br>
+                        Gerenciamento de Acessos
+                    </div>
+                </div>
+                
+                <div class="galeria-item">
+                    <img src="/assets/images/winserver-hyperv.jpg" alt="Hyper-V Manager">
+                    <div class="galeria-descricao">
+                        <strong>Hyper-V Manager</strong><br>
+                        Console de gerenciamento de máquinas virtuais
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-recursos">
+            <h3>Recursos Técnicos do Projeto</h3>
+            <ul>
+                <li><strong>Sistema Operacional:</strong> Windows Server 2025 Datacenter</li>
+                <li><strong>Funções Instaladas:</strong> AD DS, DNS, DHCP, Hyper-V, File Services</li>
+                <li><strong>Hardware:</strong> 8GB RAM, 4x CPU R5 3600, 128GB NVME Storage</li>
+                <li><strong>Rede:</strong> 1Gbps e VLAN</li>
+                <li><strong>Segurança:</strong> BitLocker, Windows Defender, TPM 2.0</li>
+                <li><strong>Backup:</strong> Windows Server Backup + Veeam Agent</li>
+                <li><strong>Monitoramento:</strong> Windows Admin Center + Prometheus</li>
+            </ul>
+            
+            <div style="margin-top: 20px;">
+                <span class="badge">Windows Server 2025</span>
+                <span class="badge">Active Directory</span>
+                <span class="badge">Hyper-V</span>
+                <span class="badge">DNS/DHCP</span>
+                <span class="badge">Failover Cluster</span>
+                <span class="badge">Group Policy</span>
+                <span class="badge">PowerShell</span>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-config">
+            <h3>Configurações de Serviços</h3>
+            <ul>
+                <li><strong>Domain:</strong> corp.local (Floresta e Domínio únicos)</li>
+                <li><strong>DNS:</strong> Forwarders para 8.8.8.8 e 1.1.1.1</li>
+                <li><strong>DHCP:</strong> Scope 192.168.1.100-200 /24</li>
+                <li><strong>GPOs:</strong> Password Policy, Desktop Lockdown, Drive Mapping</li>
+                <li><strong>Hyper-V:</strong> Generation 2 VMs, Dynamic Memory, Checkpoints</li>
+                <li><strong>Storage:</strong> NTFS ReFS Volumes, Deduplication Enabled</li>
+                <li><strong>Backup:</strong> Incremental diário + Full semanal</li>
+            </ul>
+            
+            <div style="margin-top: 20px;">
+                <span class="badge">corp.local</span>
+                <span class="badge">192.168.1.0/24</span>
+                <span class="badge">GPO Policies</span>
+                <span class="badge">ReFS</span>
+                <span class="badge">NTFS</span>
+                <span class="badge">TPM 2.0</span>
+                <span class="badge">BitLocker</span>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Modal da Galeria (FORA DO MAIN, SOBRE TUDO) -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    
+    <!-- Botões de navegação -->
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+<!-- Partículas globais -->
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "";
+const SEU_REPOSITORIO = "";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

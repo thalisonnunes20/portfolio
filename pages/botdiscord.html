@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bot Discord</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Bot Discord</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Automação • Moderação • Integrações
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/discord.jpg">
+    </div>
+    
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Bot de Discord com funcionalidades avançadas de moderação, automação e integração com APIs externas.</p>
+      
+      <div class="descricao-detalhada">
+          <h3>Moderação e Administração</h3>
+          <ul>
+              <li>Auto-moderação com filtro de palavras</li>
+              <li>Warn system com histórico de infrações</li>
+              <li>Mute, kick e ban com razões registradas</li>
+              <li>Logging de ações de moderação em canal dedicado</li>
+              <li>Anti-spam e anti-raid protection</li>
+          </ul>
+          
+          <h3>Sistema de Tickets</h3>
+          <ul>
+              <li>Criação de tickets por reação ou comando</li>
+              <li>Categorias de suporte (suporte técnico, reportar bug, etc)</li>
+              <li>Transcripts automáticos para arquivamento</li>
+              <li>Ping automático para staff disponível</li>
+              <li>Integração com banco de dados para histórico</li>
+          </ul>
+          
+          <h3>Integrações e APIs</h3>
+          <ul>
+              <li>Consulta de dados de jogos (Steam, Minecraft, etc)</li>
+              <li>Busca no YouTube, Google e Wikipedia</li>
+              <li>APIs de criptomoedas e preços em tempo real</li>
+              <li>Integração com serviços de música (Spotify, YouTube Music)</li>
+              <li>Webhooks para notificações de sistemas externos</li>
+          </ul>
+          
+          <h3>Comandos de Utilidade</h3>
+          <ul>
+              <li>Poll system com votação por reações</li>
+              <li>Giveaways com sorteio automático</li>
+              <li>Level system com ranking de membros</li>
+              <li>Custom commands com respostas dinâmicas</li>
+              <li>Event reminders e calendário de eventos</li>
+          </ul>
+          
+          <div style="margin-top: 20px;">
+              <span class="badge">Python</span>
+              <span class="badge">discord.py</span>
+              <span class="badge">SQLite</span>
+              <span class="badge">REST API</span>
+              <span class="badge">Webhooks</span>
+              <span class="badge">Asyncio</span>
+              <span class="badge">Docker</span>
+              <span class="badge">Uvicorn</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nova Seção Documentação - CORRIGIDA (sem ajuste de altura) -->
+<div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+    <h2>Documentação</h2>
+    
+    <div class="tabs-header">
+        <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+        <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+        <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+    </div>
+    
+    <div class="tabs-content-container">
+        <div class="tab-content active" id="tab-github">
+            <div class="github-embed">
+                <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                    <i class="fab fa-github"></i> Projeto no GitHub
+                </h3>
+                
+                <!-- Card com informações da API -->
+                <div id="github-card" style="
+                    background: #0d1117;
+                    border-radius: 12px;
+                    padding: 25px;
+                    border: 1px solid #30363d;
+                    margin-bottom: 20px;">
+                    
+                    <div id="github-content" style="text-align: center; padding: 20px 0;">
+                        <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <p style="color: #8b949e; margin-top: 10px;">
+                            Carregando informações do GitHub...
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Botão para abrir no GitHub -->
+                <div style="text-align: center;">
+                    <a id="github-link" 
+                       href="#" 
+                       target="_blank" 
+                       style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            background: #238636;
+                            color: white;
+                            padding: 12px 25px;
+                            border-radius: 8px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            transition: background 0.3s;">
+                        <i class="fab fa-github"></i>
+                        <span id="btn-text">Abrir no GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-galeria">
+            <p style="text-align: center;">Imagens e capturas de tela da implementação do Bot Discord:</p>
+            
+            <div class="galeria-projeto">
+                <!-- IMAGEM 1 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/discord-bot1.jpg" alt="Dashboard do Bot Discord">
+                    <div class="galeria-descricao">
+                        <strong>Dashboard do Bot</strong><br>
+                        Interface de configuração e status do bot
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 2 -->
+                <!-- <div class="galeria-item">
+                    <img src="/images/discord-bot2.jpg" alt="Sistema de Tickets">
+                    <div class="galeria-descricao">
+                        <strong>Sistema de Tickets</strong><br>
+                        Criação e gerenciamento de tickets de suporte
+                    </div>
+                </div> -->
+                
+                <!-- IMAGEM 3 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/discord-bot3.jpg" alt="Comandos do Bot">
+                    <div class="galeria-descricao">
+                        <strong>Comandos do Bot</strong><br>
+                        Lista de comandos disponíveis e funcionalidades
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-recursos">
+            <h3>Recursos Técnicos do Projeto Bot Discord</h3>
+            <ul>
+                <li><strong>Linguagem:</strong> Python 3.11+ com discord.py</li>
+                <li><strong>Banco de Dados:</strong> SQLite para armazenamento local</li>
+                <li><strong>APIs:</strong> Integração com YouTube, Steam, CoinGecko</li>
+                <li><strong>Hosting:</strong> Docker container com auto-restart</li>
+                <li><strong>Monitoramento:</strong> Logging extensivo com Discord webhooks</li>
+                <li><strong>Backup:</strong> Scripts automáticos de backup da database</li>
+                <li><strong>Segurança:</strong> Rate limiting e verificação de permissões</li>
+            </ul>
+            
+            <div style="margin-top: 20px;">
+                <span class="badge">Python 3.11</span>
+                <span class="badge">discord.py 2.3</span>
+                <span class="badge">SQLite</span>
+                <span class="badge">Docker</span>
+                <span class="badge">Webhooks</span>
+                <span class="badge">API REST</span>
+                <span class="badge">Asyncio</span>
+                <span class="badge">Uvicorn</span>
+                <span class="badge">Moderação</span>
+                <span class="badge">Automação</span>
+                <span class="badge">Tickets</span>
+                <span class="badge">Integrações</span>
+            </div>
+            
+            <div class="github-note">
+                <strong>Nota:</strong> Este projeto implementa um bot de Discord completo com sistema de moderação, tickets, integrações com APIs externas e automação, mostrando habilidades em desenvolvimento Python, integração de APIs e criação de sistemas escaláveis.
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<!-- Modal da Galeria (FORA DO MAIN, SOBRE TUDO) -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+<!-- Partículas globais -->
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "thalisonnunes20";
+const SEU_REPOSITORIO = "bot-music-discord";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

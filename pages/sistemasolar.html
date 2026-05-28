@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Sistema Solar 3D | Portfólio</title>
+    <link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/pages/sistemasolar.css">
+</head>
+<body>
+    <div class="cosmic-bg"></div>
+    <div class="noise"></div>
+
+    <!-- Botão Hamburguer -->
+    <div class="hamburger" id="hamburgerBtn">
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Painel de menu deslizante -->
+    <div class="menu-panel" id="menuPanel">
+        <div class="menu-header">
+            <div class="menu-header-dot"></div>
+            <span class="menu-title">Sistema Solar</span>
+        </div>
+        <div class="menu-planets-grid" id="menuGrid"></div>
+    </div>
+
+    <!-- Card de informações (sem badge inferior direito) -->
+    <div class="info-card" id="info-card">
+        <h3>🌌 Sistema Solar</h3>
+        <p>Clique em qualquer planeta para explorar. Câmera segue sem obstrução do Sol.</p>
+        <div class="stat">💫 Arraste para orbitar | Zoom nos detalhes</div>
+    </div>
+
+    <!-- Importações Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="/assets/js/pages/sistemasolar-module.js"></script>
+</body>
+</html>

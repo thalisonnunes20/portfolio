@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeTube</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">MeTube</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    yt-dlp • Download de Vídeos • Biblioteca de Mídia
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/metube.jpg" alt="MeTube">
+    </div>
+
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Interface web self-hosted para download de vídeos e áudios via yt-dlp, integrável com o Jellyfin para criação de biblioteca de mídia local automatizada.</p>
+
+      <div class="descricao-detalhada">
+          <h3>Download de Vídeos e Áudios</h3>
+          <ul>
+              <li>Suporte a mais de 1000 sites via yt-dlp (YouTube, Vimeo, Twitch, etc.)</li>
+              <li>Download de vídeos em qualidade até 4K com codec H.264 e AV1</li>
+              <li>Extração de áudio em MP3, AAC, FLAC, Opus e outros formatos</li>
+              <li>Download de playlists completas com um único link</li>
+              <li>Seleção de qualidade, formato e idioma de legenda antes do download</li>
+          </ul>
+
+          <h3>Fila e Gerenciamento</h3>
+          <ul>
+              <li>Fila de downloads com controle de prioridade e concorrência</li>
+              <li>Progresso em tempo real com velocidade e tempo estimado</li>
+              <li>Histórico completo de downloads com status e metadados</li>
+              <li>Retentar downloads com falha automaticamente</li>
+              <li>Notificações de conclusão via interface web</li>
+          </ul>
+
+          <h3>Integração com Jellyfin</h3>
+          <ul>
+              <li>Pasta de saída mapeada diretamente na biblioteca do Jellyfin</li>
+              <li>Metadados embarcados nos arquivos para reconhecimento automático</li>
+              <li>Thumbnails e capas baixadas junto com o vídeo</li>
+              <li>Organização automática por canal ou playlist</li>
+              <li>Atualização da biblioteca Jellyfin após cada download concluído</li>
+          </ul>
+
+          <h3>Configuração e Deploy</h3>
+          <ul>
+              <li>Deploy via Docker com volume de saída configurável</li>
+              <li>Variáveis de ambiente para customização de comportamento</li>
+              <li>Suporte a cookies para download de conteúdo privado ou restrito por região</li>
+              <li>Proxy configurável para contornar restrições geográficas</li>
+              <li>Acesso via Nginx Proxy Manager com SSL/TLS</li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+              <span class="badge">MeTube</span>
+              <span class="badge">yt-dlp</span>
+              <span class="badge">Docker</span>
+              <span class="badge">Jellyfin</span>
+              <span class="badge">YouTube</span>
+              <span class="badge">Self-Hosted</span>
+              <span class="badge">MP3</span>
+              <span class="badge">4K</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Documentação (CORRIGIDA) -->
+  <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+      <h2>Documentação</h2>
+
+      <div class="tabs-header">
+          <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+          <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+          <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+      </div>
+
+      <div class="tabs-content-container">
+
+          <!-- ABA GITHUB -->
+          <div class="tab-content active" id="tab-github">
+              <div class="github-embed">
+                  <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                      <i class="fab fa-github"></i> Projeto no GitHub
+                  </h3>
+                  <div id="github-card" style="
+                      background: #0d1117;
+                      border-radius: 12px;
+                      padding: 25px;
+                      border: 1px solid #30363d;
+                      margin-bottom: 20px;">
+                      <div id="github-content" style="text-align: center; padding: 20px 0;">
+                          <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                              <i class="fas fa-spinner fa-spin"></i>
+                          </div>
+                          <p style="color: #8b949e; margin-top: 10px;">Carregando informações do GitHub...</p>
+                      </div>
+                  </div>
+                  <div style="text-align: center;">
+                      <a id="github-link" href="#" target="_blank" style="
+                          display: inline-flex; align-items: center; gap: 10px;
+                          background: #238636; color: white;
+                          padding: 12px 25px; border-radius: 8px;
+                          text-decoration: none; font-weight: 600;
+                          transition: background 0.3s;">
+                          <i class="fab fa-github"></i>
+                          <span id="btn-text">Abrir no GitHub</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA GALERIA -->
+          <div class="tab-content" id="tab-galeria">
+              <p style="text-align: center;">Imagens e capturas de tela do projeto MeTube:</p>
+              <div class="galeria-projeto">
+                  <div class="galeria-item">
+                      <img src="/assets/images/metube-dashboard.jpg" alt="Dashboard MeTube">
+                      <div class="galeria-descricao">
+                          <strong>Interface Principal</strong><br>
+                          Fila de downloads com progresso em tempo real
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/metube-queue.jpg" alt="Fila MeTube">
+                      <div class="galeria-descricao">
+                          <strong>Fila de Downloads</strong><br>
+                          Gerenciamento de múltiplos downloads simultâneos
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/metube-history.jpg" alt="Histórico MeTube">
+                      <div class="galeria-descricao">
+                          <strong>Histórico de Downloads</strong><br>
+                          Registro completo de todos os conteúdos baixados
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA RECURSOS -->
+          <div class="tab-content" id="tab-recursos">
+              <h3>Recursos Técnicos do Projeto MeTube</h3>
+              <ul>
+                  <li><strong>Backend:</strong> yt-dlp com atualização automática semanal via cron</li>
+                  <li><strong>Deploy:</strong> Container Docker com volume de saída mapeado na biblioteca Jellyfin</li>
+                  <li><strong>Armazenamento:</strong> Volume NFS no TrueNAS com organização por tipo de mídia</li>
+                  <li><strong>Formatos:</strong> Vídeo até 4K H.264/AV1 e áudio em MP3, FLAC e Opus</li>
+                  <li><strong>Cookies:</strong> Arquivo de cookies configurado para conteúdo privado</li>
+                  <li><strong>Acesso:</strong> Nginx Proxy Manager com SSL/TLS e autenticação básica</li>
+                  <li><strong>Integração:</strong> Pasta de saída compartilhada com biblioteca do Jellyfin</li>
+              </ul>
+
+              <div style="margin-top: 20px;">
+                  <span class="badge">MeTube</span>
+                  <span class="badge">yt-dlp</span>
+                  <span class="badge">Docker</span>
+                  <span class="badge">Jellyfin</span>
+                  <span class="badge">NFS</span>
+                  <span class="badge">TrueNAS</span>
+                  <span class="badge">Nginx</span>
+                  <span class="badge">SSL/TLS</span>
+                  <span class="badge">Self-Hosted</span>
+              </div>
+
+              <div class="github-note">
+                  <strong>Nota:</strong> Este projeto implementa o MeTube como solução self-hosted de download de mídia, integrado diretamente ao Jellyfin através de volumes compartilhados, permitindo adicionar conteúdo de qualquer plataforma à biblioteca de streaming local com qualidade máxima e sem dependências externas.
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</main>
+
+<!-- Modal da Galeria -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+
+<!-- Partículas globais -->
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "alexta69";
+const SEU_REPOSITORIO = "metube";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrueNAS</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">TrueNAS</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Storage • ZFS • Backups • NAS Enterprise
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/truenas.jpg">
+    </div>
+    
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Sistema de armazenamento empresarial baseado em ZFS com recursos avançados de proteção de dados.</p>
+      
+      <div class="descricao-detalhada">
+          <h3>Sistema de Arquivos ZFS</h3>
+          <ul>
+              <li>Copy-on-write com integridade de dados end-to-end</li>
+              <li>RAID-Z (Z1, Z2, Z3) com parity ajustável</li>
+              <li>Snapshots instantâneos e espaço eficiente</li>
+              <li>Deduplicação e compressão transparente</li>
+              <li>Scrubbing automático para detecção de erros</li>
+          </ul>
+          
+          <h3>Protocolos de Compartilhamento</h3>
+          <ul>
+              <li>SMB/CIFS para ambientes Windows</li>
+              <li>NFS v3/v4 para sistemas Unix/Linux</li>
+              <li>iSCSI para virtualização e bancos de dados</li>
+              <li>AFP para clientes Apple legacy</li>
+              <li>FTP/FTPS e SFTP para transferências</li>
+          </ul>
+          
+          <h3>Backup e Replicação</h3>
+          <ul>
+              <li>Replicação ZFS para outro TrueNAS</li>
+              <li>Integração com cloud (AWS S3, Backblaze B2)</li>
+              <li>Snapshots periódicos e retenção</li>
+              <li>Rsync para backup incremental</li>
+              <li>VM backup com VSS para Windows</li>
+          </ul>
+          
+          <h3>Monitoramento e Alerta</h3>
+          <ul>
+              <li>Dashboard com health status dos discos</li>
+              <li>SMART monitoring e predição de falhas</li>
+              <li>Alertas por email, Slack ou Telegram</li>
+              <li>Reporting de uso de espaço e performance</li>
+              <li>Integração com Grafana para métricas</li>
+          </ul>
+          
+          <div style="margin-top: 20px;">
+              <span class="badge">TrueNAS CORE</span>
+              <span class="badge">ZFS</span>
+              <span class="badge">RAID-Z</span>
+              <span class="badge">SMB/NFS</span>
+              <span class="badge">iSCSI</span>
+              <span class="badge">Snapshots</span>
+              <span class="badge">Replication</span>
+              <span class="badge">FreeBSD</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nova Seção Documentação -->
+<div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+    <h2>Documentação</h2>
+    
+    <div class="tabs-header">
+        <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+        <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+        <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+    </div>
+    
+    <div class="tabs-content-container">
+        <div class="tab-content active" id="tab-github">
+            <div class="github-embed">
+                <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                    <i class="fab fa-github"></i> Projeto no GitHub
+                </h3>
+                
+                <!-- Card com informações da API -->
+                <div id="github-card" style="
+                    background: #0d1117;
+                    border-radius: 12px;
+                    padding: 25px;
+                    border: 1px solid #30363d;
+                    margin-bottom: 20px;">
+                    
+                    <div id="github-content" style="text-align: center; padding: 20px 0;">
+                        <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <p style="color: #8b949e; margin-top: 10px;">
+                            Carregando informações do GitHub...
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Botão para abrir no GitHub -->
+                <div style="text-align: center;">
+                    <a id="github-link" 
+                       href="#" 
+                       target="_blank" 
+                       style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            background: #238636;
+                            color: white;
+                            padding: 12px 25px;
+                            border-radius: 8px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            transition: background 0.3s;">
+                        <i class="fab fa-github"></i>
+                        <span id="btn-text">Abrir no GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-galeria">
+            <p style="text-align: center;">Imagens e capturas de tela do projeto TrueNAS:</p>
+            
+            <div class="galeria-projeto">
+                <!-- IMAGEM 1 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/truenas-dashboard.jpg" alt="Dashboard TrueNAS">
+                    <div class="galeria-descricao">
+                        <strong>Dashboard Principal</strong><br>
+                        Interface de administração do TrueNAS
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 2 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/truenas-storage.jpg" alt="Gerenciamento de Storage">
+                    <div class="galeria-descricao">
+                        <strong>Gerenciamento de Storage</strong><br>
+                        Configuração de pools ZFS e datasets
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 3 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/truenas-apps.jpg" alt="Apps">
+                    <div class="galeria-descricao">
+                        <strong>Apps</strong><br>
+                        Configuração de apps como: Nextcloud, jellyfin e etc.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       <div class="tab-content" id="tab-recursos">
+    <h3>Recursos Técnicos do Projeto TrueNAS</h3>
+    <ul>
+        <li><strong>Plataforma:</strong> TrueNAS Scale 25.04.2.6</li>
+        <li><strong>Hardware:</strong> 8GB Ram DDR4</li>
+        <li><strong>Storage:</strong> 1x6TB (Sem Espelho)</li>
+        <li><strong>Rede:</strong> Porta 1G</li>
+        <li><strong>Protocolos:</strong> SMB, NFS, iSCSI, SFTP</li>
+        <li><strong>Recursos ZFS:</strong> Snapshots, compressão, deduplicação</li>
+        <li><strong>Apps:</strong> Nextcloud, Jellyfin, containers Docker</li>
+    </ul>
+    
+    <div style="margin-top: 20px;">
+        <span class="badge">TrueNAS 25.04</span>
+        <span class="badge">ZFS</span>
+        <span class="badge">RAID-Z2</span>
+        <span class="badge">SMB 3.0</span>
+        <span class="badge">iSCSI</span>
+        <span class="badge">Snapshots</span>
+        <span class="badge">Replication</span>
+        <span class="badge">Nextcloud</span>
+        <span class="badge">Jellyfin</span>
+        <span class="badge">Docker</span>
+        <span class="badge">Backup</span>
+    </div>
+    
+    <div class="github-note">
+        <strong>Nota:</strong> Este projeto implementa uma solução completa de armazenamento empresarial com ZFS, oferecendo alta disponibilidade, proteção de dados e recursos avançados como snapshots, replicação e containers Docker, demonstrando habilidades em administração de storage, proteção de dados e virtualização.
+    </div>
+</div>
+    </div>
+</div>
+
+</main>
+
+<!-- Modal da Galeria (FORA DO MAIN, SOBRE TUDO) -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+<!-- Partículas globais -->
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "truenas";
+const SEU_REPOSITORIO = "documentation";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxmox VE</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Proxmox VE</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Virtualização • Containers • Alta Disponibilidade
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/proxmox.jpg">
+    </div>
+    
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Plataforma de virtualização enterprise completa com suporte a KVM, LXC e clustering.</p>
+      
+      <div class="descricao-detalhada">
+          <h3>Virtualização com KVM</h3>
+          <ul>
+              <li>Máquinas virtuais de alto desempenho com virtualização de hardware</li>
+              <li>Suporte a Windows, Linux, BSD e outros sistemas operacionais</li>
+              <li>GPU Passthrough para aceleração gráfica em VMs</li>
+              <li>Live Migration entre hosts sem downtime</li>
+              <li>Snapshots e backups incrementais</li>
+          </ul>
+          
+          <h3>Containers LXC</h3>
+          <ul>
+              <li>Containers leves com overhead mínimo</li>
+              <li>Isolamento completo de processos e rede</li>
+              <li>Inicialização em segundos vs minutos de VMs</li>
+              <li>Template system para deploy rápido</li>
+              <li>Integração com Docker via LXC</li>
+          </ul>
+          
+          <h3>Clustering e Alta Disponibilidade</h3>
+          <ul>
+              <li>Cluster multi-nó com quorum automático</li>
+              <li>HA (High Availability) para VMs críticas</li>
+              <li>Shared storage com Ceph, ZFS ou NFS</li>
+              <li>Replicação em tempo real entre datacenters</li>
+              <li>Failover automático em caso de falha</li>
+          </ul>
+          
+          <h3>Gerenciamento e Monitoramento</h3>
+          <ul>
+              <li>Interface web responsiva e intuitiva</li>
+              <li>API REST completa para automação</li>
+              <li>CLI via pvesh e vzdump</li>
+              <li>Integração com LDAP/Active Directory</li>
+              <li>Logs centralizados e alertas</li>
+          </ul>
+          
+          <div style="margin-top: 20px;">
+              <span class="badge">Proxmox VE 9.x</span>
+              <span class="badge">KVM</span>
+              <span class="badge">LXC</span>
+              <span class="badge">Ceph</span>
+              <span class="badge">ZFS</span>
+              <span class="badge">High Availability</span>
+              <span class="badge">Cluster</span>
+              <span class="badge">Live Migration</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nova Seção Documentação -->
+<div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+    <h2>Documentação</h2>
+    
+    <div class="tabs-header">
+        <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+        <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+        <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+    </div>
+    
+    <div class="tabs-content-container">
+        <div class="tab-content active" id="tab-github">
+            <div class="github-embed">
+                <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                    <i class="fab fa-github"></i> Projeto no GitHub
+                </h3>
+                
+                <!-- Card com informações da API -->
+                <div id="github-card" style="
+                    background: #0d1117;
+                    border-radius: 12px;
+                    padding: 25px;
+                    border: 1px solid #30363d;
+                    margin-bottom: 20px;">
+                    
+                    <div id="github-content" style="text-align: center; padding: 20px 0;">
+                        <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <p style="color: #8b949e; margin-top: 10px;">
+                            Carregando informações do GitHub...
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Botão para abrir no GitHub -->
+                <div style="text-align: center;">
+                    <a id="github-link" 
+                       href="#" 
+                       target="_blank" 
+                       style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            background: #238636;
+                            color: white;
+                            padding: 12px 25px;
+                            border-radius: 8px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            transition: background 0.3s;">
+                        <i class="fab fa-github"></i>
+                        <span id="btn-text">Abrir no GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-galeria">
+            <p style="text-align: center;">Imagens e capturas de tela do projeto Proxmox VE:</p>
+            
+            <div class="galeria-projeto">
+                <!-- IMAGEM 1 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/proxmox-dashboard.jpg" alt="Dashboard Proxmox">
+                    <div class="galeria-descricao">
+                        <strong>Dashboard Principal</strong><br>
+                        Interface de gerenciamento do Proxmox VE
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 2 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/proxmox-cluster.jpg" alt="Cluster Proxmox">
+                    <div class="galeria-descricao">
+                        <strong>Configuração de Cluster</strong><br>
+                        Multi-nó com alta disponibilidade
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 3 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/proxmox-vm.jpg" alt="Máquina Virtual">
+                    <div class="galeria-descricao">
+                        <strong>Máquina Virtual</strong><br>
+                        VM com Debian e configuração de rede
+                    </div>
+                </div>
+
+                <!-- Video de Apresentação -->
+                
+                    <!-- <div class="galeria-item">
+
+                        <iframe 
+                            width="100%" 
+                            height="220"
+                            src="https://www.youtube.com/embed/GM6nF_3Np5o" COPIAR LINK PARA INCORPORAR
+                            title="Vídeo YouTube"
+                            frameborder="0"
+                            allowfullscreen>
+                        </iframe>
+                        
+                            <div class="galeria-descricao">
+                                <strong>Video Demonstrativo</strong><br>
+                                    Video Apresentação
+                            </div>
+                    </div> -->
+
+            </div>
+        </div>
+        
+       <div class="tab-content" id="tab-recursos">
+    <h3>Recursos Técnicos do Projeto Proxmox</h3>
+    <ul>
+        <li><strong>Arquitetura:</strong> Cluster de 2 nós Proxmox VE</li>
+        <li><strong>Storage:</strong> Ceph distributed storage pool</li>
+        <li><strong>Rede:</strong> VLAN segregation e bond LACP</li>
+        <li><strong>Backup:</strong> Vzdump com retenção de 30 dias</li>
+        <li><strong>Monitoramento:</strong> Zabbix integration com alertas</li>
+        <li><strong>Scripts:</strong> Automação via API REST e Python</li>
+        <li><strong>Documentação:</strong> Wiki interna com procedimentos</li>
+    </ul>
+    
+    <div style="margin-top: 20px;">
+        <span class="badge">Proxmox VE 9.x</span>
+        <span class="badge">KVM</span>
+        <span class="badge">LXC</span>
+        <span class="badge">Ceph</span>
+        <span class="badge">ZFS</span>
+        <span class="badge">High Availability</span>
+        <span class="badge">Cluster</span>
+        <span class="badge">Live Migration</span>
+        <span class="badge">Python</span>
+        <span class="badge">API REST</span>
+        <span class="badge">Zabbix</span>
+    </div>
+    
+    <div class="github-note">
+        <strong>Nota:</strong> Este projeto implementa uma infraestrutura de virtualização empresarial completa com alta disponibilidade, clustering e automação, mostrando habilidades em virtualização, armazenamento distribuído e gerenciamento de infraestrutura crítica.
+    </div>
+</div>
+    </div>
+</div>
+
+</main>
+
+<!-- Modal da Galeria (FORA DO MAIN, SOBRE TUDO) -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "thalisonnunes20";
+const SEU_REPOSITORIO = "proxmox";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

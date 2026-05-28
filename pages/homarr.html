@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homarr</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Homarr</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Dashboard • Self-Hosted • Docker • Homelab
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/homarr.jpg" alt="Homarr">
+    </div>
+
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Dashboard moderno e altamente customizável para homelab, com integração nativa a serviços self-hosted, widgets interativos e visão centralizada de toda a infraestrutura em uma única interface elegante.</p>
+
+      <div class="descricao-detalhada">
+          <h3>Interface e Customização</h3>
+          <ul>
+              <li>Layout de grade totalmente personalizável com drag-and-drop de widgets e ícones</li>
+              <li>Suporte a múltiplos temas e modo escuro nativo com paletas de cores configuráveis</li>
+              <li>Criação de seções e categorias para organizar serviços por função ou ambiente</li>
+              <li>Ícones automáticos via integração com bibliotecas de logos de serviços populares</li>
+              <li>Interface responsiva com adaptação automática para dispositivos móveis e tablets</li>
+          </ul>
+
+          <h3>Integração com Serviços</h3>
+          <ul>
+              <li>Integração nativa com Jellyfin, Sonarr, Radarr, qBittorrent e dezenas de outros serviços</li>
+              <li>Widgets de status em tempo real mostrando uso de CPU, memória e disco dos hosts</li>
+              <li>Widget de DNS com estatísticas do AdGuard Home ou Pi-hole diretamente no dashboard</li>
+              <li>Integração com Proxmox VE para exibição de status de VMs e containers LXC</li>
+              <li>Suporte a calendários, RSS feeds e previsão do tempo com localização configurável</li>
+          </ul>
+
+          <h3>Gerenciamento e Acesso</h3>
+          <ul>
+              <li>Sistema de autenticação com múltiplos usuários e controle de permissões por board</li>
+              <li>Múltiplos boards configuráveis para diferentes contextos (pessoal, infra, mídia)</li>
+              <li>Acesso seguro via Nginx Proxy Manager com SSL/TLS e autenticação integrada</li>
+              <li>Importação e exportação de configurações em formato JSON para backup e migração</li>
+              <li>API REST para automação e integração com outros serviços da stack</li>
+          </ul>
+
+          <h3>Deploy e Infraestrutura</h3>
+          <ul>
+              <li>Deploy via Docker Compose com imagem oficial e configuração mínima</li>
+              <li>Persistência de configurações via volume bind mount para portabilidade total</li>
+              <li>Executado em LXC no Proxmox VE com recursos mínimos de CPU e memória</li>
+              <li>Atualização automática de containers via Watchtower integrado ao workflow</li>
+              <li>Suporte a variáveis de ambiente para configuração segura de credenciais</li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+              <span class="badge">Homarr</span>
+              <span class="badge">Dashboard</span>
+              <span class="badge">Docker</span>
+              <span class="badge">Self-Hosted</span>
+              <span class="badge">Homelab</span>
+              <span class="badge">Widgets</span>
+              <span class="badge">Proxmox</span>
+              <span class="badge">Nginx</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Documentação -->
+  <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+      <h2>Documentação</h2>
+
+      <div class="tabs-header">
+          <button class="tab-btn active" data-tab="github">Visualização GitHub</button>
+          <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+          <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+      </div>
+
+      <div class="tabs-content-container">
+
+          <!-- ABA GITHUB -->
+          <div class="tab-content active" id="tab-github">
+              <div class="github-embed">
+                  <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                      <i class="fab fa-github"></i> Projeto no GitHub
+                  </h3>
+                  <div id="github-card" style="
+                      background: #0d1117;
+                      border-radius: 12px;
+                      padding: 25px;
+                      border: 1px solid #30363d;
+                      margin-bottom: 20px;">
+                      <div id="github-content" style="text-align: center; padding: 20px 0;">
+                          <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                              <i class="fas fa-spinner fa-spin"></i>
+                          </div>
+                          <p style="color: #8b949e; margin-top: 10px;">Carregando informações do GitHub...</p>
+                      </div>
+                  </div>
+                  <div style="text-align: center;">
+                      <a id="github-link" href="#" target="_blank" style="
+                          display: inline-flex; align-items: center; gap: 10px;
+                          background: #238636; color: white;
+                          padding: 12px 25px; border-radius: 8px;
+                          text-decoration: none; font-weight: 600;
+                          transition: background 0.3s;">
+                          <i class="fab fa-github"></i>
+                          <span id="btn-text">Abrir no GitHub</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA GALERIA -->
+          <div class="tab-content" id="tab-galeria">
+              <p style="text-align: center;">Imagens e capturas de tela do projeto Homarr:</p>
+              <div class="galeria-projeto">
+                  <div class="galeria-item">
+                      <img src="/assets/images/homarr-dashboard.jpg" alt="Homarr Dashboard">
+                      <div class="galeria-descricao">
+                          <strong>Dashboard Principal</strong><br>
+                          Visão geral de todos os serviços do homelab
+                      </div>
+                  </div>
+                  <!-- <div class="galeria-item">
+                      <img src="/assets/images/homarr-widgets.jpg" alt="Homarr Widgets">
+                      <div class="galeria-descricao">
+                          <strong>Widgets Interativos</strong><br>
+                          Monitoramento em tempo real de CPU, memória e rede
+                      </div>
+                  </div> -->
+                  <!-- <div class="galeria-item">
+                      <img src="/assets/images/homarr-integrations.jpg" alt="Homarr Integrações">
+                      <div class="galeria-descricao">
+                          <strong>Integrações</strong><br>
+                          Serviços conectados como Jellyfin e AdGuard Home
+                      </div>
+                  </div> -->
+                  <!-- <div class="galeria-item">
+                      <img src="/images/homarr-settings.jpg" alt="Homarr Configurações">
+                      <div class="galeria-descricao">
+                          <strong>Configurações</strong><br>
+                          Painel de administração e gerenciamento de usuários
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+
+          <!-- ABA RECURSOS -->
+          <div class="tab-content" id="tab-recursos">
+              <h3>Recursos Técnicos do Projeto Homarr</h3>
+              <ul>
+                  <li><strong>Host:</strong> Container Docker em LXC privilegiado no Proxmox VE</li>
+                  <li><strong>Imagem:</strong> ghcr.io/ajnart/homarr com tag latest via Docker Compose</li>
+                  <li><strong>Persistência:</strong> Volume bind mount para /app/data/configs e /app/public/icons</li>
+                  <li><strong>Proxy:</strong> Nginx Proxy Manager com SSL/TLS via Let's Encrypt</li>
+                  <li><strong>Integrações ativas:</strong> AdGuard Home, Proxmox VE, Jellyfin e Portainer</li>
+                  <li><strong>Autenticação:</strong> Usuários locais com controle de acesso por board</li>
+                  <li><strong>Atualizações:</strong> Watchtower monitorando a imagem para pull automático</li>
+              </ul>
+
+              <div style="margin-top: 20px;">
+                  <span class="badge">Homarr</span>
+                  <span class="badge">Docker Compose</span>
+                  <span class="badge">Proxmox LXC</span>
+                  <span class="badge">Nginx Proxy Manager</span>
+                  <span class="badge">Let's Encrypt</span>
+                  <span class="badge">AdGuard Home</span>
+                  <span class="badge">Jellyfin</span>
+                  <span class="badge">Portainer</span>
+                  <span class="badge">Watchtower</span>
+              </div>
+
+              <div class="github-note">
+                  <strong>Nota:</strong> O Homarr centraliza o acesso a todos os serviços self-hosted do homelab em um dashboard único e elegante, eliminando a necessidade de memorizar portas e IPs. Com integração direta ao Proxmox VE, AdGuard Home e Jellyfin, fornece visibilidade em tempo real do estado de toda a infraestrutura, demonstrando habilidades em orquestração de serviços, Docker e administração de ambientes self-hosted.
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</main>
+
+<!-- Modal da Galeria -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "ajnart";
+const SEU_REPOSITORIO = "homarr";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

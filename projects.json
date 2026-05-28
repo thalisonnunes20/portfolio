@@ -2,160 +2,262 @@
   {
     "nome": "Proxmox VE",
     "descricao": "Plataforma completa de virtualização enterprise com clustering, alta disponibilidade e gerenciamento centralizado de VMs e containers.",
-    "tags": ["Virtualização", "KVM", "LXC", "HA"],
-    "imagem": "images/proxmox.jpg",
+    "tags": [
+      "Virtualização",
+      "KVM",
+      "LXC",
+      "HA"
+    ],
+    "imagem": "assets/images/proxmox.jpg",
     "url": "/proxmox",
     "alt": "Proxmox VE"
   },
   {
     "nome": "pfSense Firewall",
     "descricao": "Firewall avançado com regras granulares, VPN site-to-site, filtro de conteúdo e segmentação de rede para ambientes corporativos.",
-    "tags": ["Firewall", "VPN", "Segurança", "OpenVPN"],
-    "imagem": "images/pfsense.jpg",
+    "tags": [
+      "Firewall",
+      "VPN",
+      "Segurança",
+      "OpenVPN"
+    ],
+    "imagem": "assets/images/pfsense.jpg",
     "url": "/pfsense",
     "alt": "pfSense"
   },
   {
     "nome": "Nginx Proxy Manager",
     "descricao": "Solução de proxy reverso com interface web para gerenciamento de domínios, certificados SSL automáticos e balanceamento de carga.",
-    "tags": ["Proxy", "SSL/TLS", "DNS", "Web"],
-    "imagem": "images/nginx.jpg",
+    "tags": [
+      "Proxy",
+      "SSL/TLS",
+      "DNS",
+      "Web"
+    ],
+    "imagem": "assets/images/nginx.jpg",
     "url": "/nginx",
     "alt": "Nginx Proxy Manager"
   },
   {
     "nome": "TrueNAS Storage",
     "descricao": "Sistema de armazenamento empresarial com ZFS, snapshots, replicação e compartilhamentos multi-protocolo (SMB, NFS, iSCSI).",
-    "tags": ["Storage", "ZFS", "Backup", "RAID"],
-    "imagem": "images/truenas.jpg",
+    "tags": [
+      "Storage",
+      "ZFS",
+      "Backup",
+      "RAID"
+    ],
+    "imagem": "assets/images/truenas.jpg",
     "url": "/truenas",
     "alt": "TrueNAS"
   },
   {
     "nome": "Nextcloud",
     "descricao": "Plataforma de colaboração e nuvem privada com sincronização de arquivos, calendário, contatos e ferramentas de produtividade.",
-    "tags": ["Cloud", "Colaboração", "PHP", "MySQL"],
-    "imagem": "images/nextcloud.jpg",
+    "tags": [
+      "Cloud",
+      "Colaboração",
+      "PHP",
+      "MySQL"
+    ],
+    "imagem": "assets/images/nextcloud.jpg",
     "url": "/nextcloud",
     "alt": "Nextcloud"
   },
   {
     "nome": "WireGuard VPN",
     "descricao": "VPN moderna de alta performance com criptografia de última geração, baixa latência e fácil configuração via interface web.",
-    "tags": ["VPN", "Criptografia", "Rede", "Segurança"],
-    "imagem": "images/wireguard.jpg",
+    "tags": [
+      "VPN",
+      "Criptografia",
+      "Rede",
+      "Segurança"
+    ],
+    "imagem": "assets/images/wireguard.jpg",
     "url": "/wireguard",
     "alt": "WireGuard"
   },
   {
     "nome": "Windows Server 2025",
     "descricao": "Infraestrutura Windows completa com Active Directory, DNS, DHCP, File Services e Hyper-V para virtualização de cargas Windows.",
-    "tags": ["Windows", "Active Directory", "Hyper-V", "AD DS"],
-    "imagem": "images/winserver.jpg",
+    "tags": [
+      "Windows",
+      "Active Directory",
+      "Hyper-V",
+      "AD DS"
+    ],
+    "imagem": "assets/images/winserver.jpg",
     "url": "/winserver2025",
     "alt": "Windows Server 2025"
   },
   {
     "nome": "Pelicano Panel",
     "descricao": "Painel de gerenciamento de servidores com monitoramento em tempo real, alertas e administração centralizada de serviços.",
-    "tags": ["Painel", "Monitoramento", "Dashboard", "Admin"],
-    "imagem": "images/pelicano.jpg",
+    "tags": [
+      "Painel",
+      "Monitoramento",
+      "Dashboard",
+      "Admin"
+    ],
+    "imagem": "assets/images/pelicano.jpg",
     "url": "/pelicano",
     "alt": "Pelicano"
   },
   {
     "nome": "Discord Bot",
     "descricao": "Bot de automação para Discord com comandos customizados, moderação, integrações APIs e sistema de tickets.",
-    "tags": ["Python", "Bot", "Discord.py", "API"],
-    "imagem": "images/discord.jpg",
+    "tags": [
+      "Python",
+      "Bot",
+      "Discord.py",
+      "API"
+    ],
+    "imagem": "assets/images/discord.jpg",
     "url": "/botdiscord",
     "alt": "Discord Bot"
   },
   {
     "nome": "Proxmox Backup Server",
     "descricao": "Solução corporativa de backup que maximiza eficiência com deduplicação em bloco e segurança total com criptografia integrada.",
-    "tags": ["Debian 13", "Backup", "Proxmox", "ZFS", "Raid"],
-    "imagem": "images/proxmox-backup-server.jpg",
+    "tags": [
+      "Debian 13",
+      "Backup",
+      "Proxmox",
+      "ZFS",
+      "Raid"
+    ],
+    "imagem": "assets/images/proxmox-backup-server.jpg",
     "url": "/proxmox-backup-server",
     "alt": "Proxmox Backup Server"
   },
   {
     "nome": "Portfólio",
     "descricao": "Este portfólio integra meus projetos técnicos em um ecossistema unificado, demonstrando habilidades práticas em infraestrutura e automação.",
-    "tags": ["Ubuntu 24.04 LTS", "Nginx", "HTML", "CSS", "JavaScript"],
-    "imagem": "images/Portfolio.gif",
+    "tags": [
+      "Ubuntu 24.04 LTS",
+      "Nginx",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "imagem": "assets/images/portfolio1.gif",
     "url": "/portfolio",
     "alt": "Portfólio"
   },
   {
     "nome": "Portainer",
     "descricao": "Interface gráfica para gerenciamento de containers Docker e Kubernetes, facilitando deploy, monitoramento e administração de stacks em ambientes self-hosted.",
-    "tags": ["Docker", "Containers", "Kubernetes", "DevOps"],
-    "imagem": "images/portainer.jpg",
+    "tags": [
+      "Docker",
+      "Containers",
+      "Kubernetes",
+      "DevOps"
+    ],
+    "imagem": "assets/images/portainer.jpg",
     "url": "/portainer",
     "alt": "Portainer"
   },
   {
     "nome": "AdGuard Home",
     "descricao": "Servidor DNS com bloqueio de anúncios e rastreadores em toda a rede, com controle granular de domínios, logs de consultas e proteção a dispositivos IoT.",
-    "tags": ["DNS", "Ad-Block", "Segurança", "Rede"],
-    "imagem": "images/adguard.jpg",
+    "tags": [
+      "DNS",
+      "Ad-Block",
+      "Segurança",
+      "Rede"
+    ],
+    "imagem": "assets/images/adguard.jpg",
     "url": "/adguard",
     "alt": "AdGuard Home"
   },
   {
     "nome": "Immich",
     "descricao": "Solução self-hosted de backup e gerenciamento de fotos e vídeos com reconhecimento facial por IA, organização automática por álbuns e app mobile nativo.",
-    "tags": ["Fotos", "IA", "Self-Hosted", "Backup"],
-    "imagem": "images/immich.jpg",
+    "tags": [
+      "Fotos",
+      "IA",
+      "Self-Hosted",
+      "Backup"
+    ],
+    "imagem": "assets/images/immich.jpg",
     "url": "/immich",
     "alt": "Immich"
   },
   {
     "nome": "Jellyfin",
     "descricao": "Servidor de mídia self-hosted para streaming de filmes, séries, músicas e podcasts, com transcodificação de vídeo, suporte a legendas e acesso remoto seguro.",
-    "tags": ["Streaming", "Mídia", "Self-Hosted", "DLNA"],
-    "imagem": "images/jellyfin.jpg",
+    "tags": [
+      "Streaming",
+      "Mídia",
+      "Self-Hosted",
+      "DLNA"
+    ],
+    "imagem": "assets/images/jellyfin.jpg",
     "url": "/jellyfin",
     "alt": "Jellyfin"
   },
   {
     "nome": "MeTube",
     "descricao": "Interface web para download de vídeos e áudios via yt-dlp, integrável com o Jellyfin e outros servidores de mídia para criação de biblioteca local automatizada.",
-    "tags": ["yt-dlp", "Download", "Mídia", "Docker"],
-    "imagem": "images/metube.jpg",
+    "tags": [
+      "yt-dlp",
+      "Download",
+      "Mídia",
+      "Docker"
+    ],
+    "imagem": "assets/images/metube.jpg",
     "url": "/metube",
     "alt": "MeTube"
   },
   {
-    "nome": "OnlyOffice Document Server",
-    "descricao": "Suite de edição colaborativa de documentos online integrada ao Nextcloud, com suporte a formatos Office, edição em tempo real e controle de revisões.",
-    "tags": ["Office", "Colaboração", "Nextcloud", "Docs"],
-    "imagem": "images/onlyoffice.jpg",
-    "url": "/onlyoffice",
-    "alt": "OnlyOffice Document Server"
+    "nome": "Collabora Online",
+    "descricao": "Suite de edição colaborativa de documentos online integrada ao Nextcloud, baseada no LibreOffice, com suporte a formatos Office e ODF, edição em tempo real via WOPI e controle de revisões.",
+    "tags": [
+      "Office",
+      "Colaboração",
+      "Nextcloud",
+      "Docs"
+    ],
+    "imagem": "assets/images/collabora.png",
+    "url": "/collabora",
+    "alt": "Collabora Online"
   },
   {
     "nome": "Sharkord",
     "descricao": "Plataforma de comunicação e gerenciamento de comunidades com canais organizados, controle de permissões, bots integrados e suporte a voz e vídeo em tempo real.",
-    "tags": ["Comunicação", "Comunidade", "Bot", "VoIP"],
-    "imagem": "images/sharkord.jpg",
+    "tags": [
+      "Comunicação",
+      "Comunidade",
+      "Bot",
+      "VoIP"
+    ],
+    "imagem": "assets/images/sharkord.jpg",
     "url": "/sharkord",
     "alt": "Sharkord"
   },
   {
     "nome": "Docker",
     "descricao": "Plataforma de containerização para empacotamento, distribuição e execução de aplicações em ambientes isolados, garantindo portabilidade e consistência entre ambientes.",
-    "tags": ["Containers", "DevOps", "Docker Compose", "CI/CD"],
-    "imagem": "images/docker.jpg",
+    "tags": [
+      "Containers",
+      "DevOps",
+      "Docker Compose",
+      "CI/CD"
+    ],
+    "imagem": "assets/images/docker.jpg",
     "url": "/docker",
     "alt": "Docker"
   },
   {
     "nome": "Homarr",
     "descricao": "Dashboard moderno e customizável para homelab, com integração nativa a serviços self-hosted, widgets interativos, gerenciamento de apps e visão centralizada de toda a infraestrutura.",
-    "tags": ["Dashboard", "Self-Hosted", "Docker", "Homelab"],
-    "imagem": "images/homarr.jpg",
+    "tags": [
+      "Dashboard",
+      "Self-Hosted",
+      "Docker",
+      "Homelab"
+    ],
+    "imagem": "assets/images/homarr.jpg",
     "url": "/homarr",
     "alt": "Homarr"
   }

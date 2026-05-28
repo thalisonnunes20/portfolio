@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Mim | Thalison Nunes</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/sobremim.css">
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Sobre Mim</h1>
+  <p class="header-subtitle" data-aos="fade-up" data-aos-delay="150">
+    Profissional de TI · Infraestrutura · Automação · Desenvolvedor
+  </p>
+  <div class="header-tags" data-aos="fade-up" data-aos-delay="300">
+    <span class="header-tag"><i class="fas fa-server"></i> Infraestrutura</span>
+    <span class="header-tag"><i class="fas fa-network-wired"></i> Redes</span>
+    <span class="header-tag"><i class="fas fa-shield-alt"></i> Segurança</span>
+    <span class="header-tag"><i class="fas fa-robot"></i> Automação</span>
+  </div>
+</header>
+
+<div class="modal-lightbox" id="modal-lightbox">
+  <div class="modal-content-wrap">
+    <img class="modal-img" id="modal-img" src="" alt="">
+  </div>
+  <div class="modal-caption" id="modal-caption"></div>
+  <div class="modal-close-btn" id="modal-close"><i class="fas fa-times"></i></div>
+  <div class="modal-nav modal-prev" id="modal-prev"><i class="fas fa-chevron-left"></i></div>
+  <div class="modal-nav modal-next" id="modal-next"><i class="fas fa-chevron-right"></i></div>
+</div>
+
+<!-- TEAM MODAL -->
+<div class="team-modal" id="team-modal">
+  <div class="team-modal-inner" id="team-modal-inner">
+    <div class="team-modal-header">
+      <div class="team-modal-photo" id="tm-photo">
+        <div class="team-modal-photo-ph">
+          <i class="fas fa-user" id="tm-photo-icon"></i>
+          <span id="tm-photo-hint">Adicione a foto<br>do integrante</span>
+        </div>
+        <img id="tm-photo-img" src="" alt="" style="display:none">
+      </div>
+      <div class="team-modal-title">
+        <div class="team-modal-name" id="tm-name">Nome do Integrante</div>
+        <div class="team-modal-role-badge" id="tm-role">Cargo / Função</div>
+        <div class="team-modal-location" id="tm-location"><i class="fas fa-map-marker-alt"></i> <span id="tm-location-text">Cidade, Estado</span></div>
+        <div class="team-modal-socials" id="tm-socials"></div>
+      </div>
+      <div class="team-modal-close" id="team-modal-close"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="team-modal-body" id="tm-body">
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <div class="perfil-section" data-aos="fade-up">
+    <div class="perfil-foto-wrapper">
+      <div class="perfil-foto">
+        <div class="perfil-foto-placeholder">
+          <!-- <i class="fas fa-user"></i> -->
+           <img src="/assets/images/thalison.png" alt="Thalison Nunes">
+        </div>
+      </div>
+      <div class="perfil-info-rapida">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span><strong>Localização:</strong> Rio Grande, RS</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-briefcase"></i>
+          <span><strong>Área:</strong> Infra / Developer</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-clock"></i>
+          <span><strong>Experiência:</strong> +5 anos</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-graduation-cap"></i>
+          <span><strong>Formação:</strong> Tecnólogo em TI</span>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-laptop-code"></i>
+          <span><strong>Desenvolvedor:</strong> Front End</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title" data-aos="fade-right">
+        <i class="fas fa-user-circle"></i> Quem sou eu
+      </div>
+      <div class="perfil-bio" data-aos="fade-up" data-aos-delay="100">
+        <p>
+          Olá! Sou <strong style="color:#f1f5f9">Thalison Nunes</strong>, profissional especializado em infraestrutura de TI com foco em virtualização, redes, storage e automação de ambientes. Atuo há mais de 5 anos na área, sempre buscando implementar soluções que sejam robustas, seguras e escaláveis.
+        </p>
+        <p>
+          Minha experiência abrange desde a administração de ambientes Proxmox com alta disponibilidade, configuração de redes corporativas e VPNs, até a automação de processos com scripts e ferramentas DevOps como Docker.
+        </p>
+        <p>
+          Sou apaixonado por tecnologia e pelo desafio constante de aprender novas ferramentas. Acredito que uma infraestrutura bem planejada é a base de qualquer operação de sucesso — e é exatamente isso que me motiva a ir além no dia a dia.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="habilidades-section" data-aos="fade-up">
+    <div class="section-title"><i class="fas fa-layer-group"></i> Habilidades Técnicas</div>
+    <div class="skills-grid">
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+        <h4><i class="fas fa-server"></i> Virtualização & Cloud</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proxmox VE</span><span>90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>VirtualBox</span><span>75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Docker / LXC</span><span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      </div>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+        <h4><i class="fas fa-network-wired"></i> Redes & Segurança</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>pfSense</span><span>88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>VPN (WireGuard)</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Firewall & VLAN (pfSense)</span><span>82%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82"></div></div></div>
+      </div>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+        <h4><i class="fas fa-terminal"></i> Automação & SO</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Linux (Debian/Ubuntu)</span><span>92%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Scripts</span><span>78%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Windows Server</span><span>65%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65"></div></div></div>
+      </div>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+        <h4><i class="fas fa-database"></i> Storage & Backup</h4>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>ZFS / Ceph</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>TrueNAS / NFS / SMB</span><span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div>
+        <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proxmox Backup Server</span><span>88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="experiencia-section" data-aos="fade-up">
+    <div class="section-title"><i class="fas fa-briefcase"></i> Experiência Profissional</div>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <span class="timeline-cargo">Analista de Sistemas</span>
+            <span class="timeline-periodo">2024 – Atual</span>
+          </div>
+          <div class="timeline-empresa"><i class="fas fa-building"></i> Digitech Soluções em TI</div>
+          <div class="timeline-desc">Responsável pela administração, manutenção e otimização de ambientes virtualizados utilizando Proxmox VE em cluster de alta disponibilidade, garantindo estabilidade, desempenho e continuidade dos serviços. Atuação na implementação de políticas de backup, monitoramento de infraestrutura e automação de deploys através de scripts. Experiência na criação, implantação e manutenção de sistemas web corporativos, incluindo soluções de gerenciamento como GLPI, além da configuração de servidores Linux, bancos de dados, proxy reverso e integração de serviços para ambientes de produção.</div>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Proxmox</span>
+            <span class="timeline-tag">Full Stack</span>
+            <span class="timeline-tag">Backup</span>
+            <span class="timeline-tag">Linux</span>
+            <span class="timeline-tag">Monitoramento</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <span class="timeline-cargo">Técnico em Manutenção de Computadores</span>
+            <span class="timeline-periodo">2023 – 2024</span>
+          </div>
+          <div class="timeline-empresa"><i class="fas fa-building"></i> Digitech Soluções em TI</div>
+          <div class="timeline-desc">Responsável pela configuração, administração e manutenção de redes corporativas, atuando com switches gerenciáveis, segmentação de rede através de VLANs e implementação de políticas de roteamento para otimização do tráfego e aumento da segurança. Experiência na implantação e gerenciamento de VPNs site-to-site e acesso remoto, garantindo comunicação segura entre filiais, servidores e usuários externos. Atuação na administração de firewalls pfSense, incluindo criação de regras de acesso, NAT, balanceamento de carga, failover de links, controle de banda, monitoramento de tráfego e aplicação de políticas de segurança perimetral para proteção da infraestrutura contra acessos indevidos e ameaças externas.</div>
+          <div class="timeline-tags">
+            <span class="timeline-tag">pfSense</span>
+            <span class="timeline-tag">VLAN</span>
+            <span class="timeline-tag">VPN</span>
+            <span class="timeline-tag">Switching</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <span class="timeline-cargo">Auxiliar Técnico</span>
+            <span class="timeline-periodo">2021 – 2023</span>
+          </div>
+          <div class="timeline-empresa"><i class="fas fa-building"></i> Digitech Soluções em TI</div>
+          <div class="timeline-desc">Atuação em suporte técnico de nível 1 e 2, realizando atendimento presencial e remoto a usuários internos para resolução de incidentes relacionados a hardware, software, rede e sistemas corporativos. Experiência na configuração, manutenção e troubleshooting de estações de trabalho Windows e Linux, impressoras, dispositivos de rede e periféricos. Administração básica de servidores Windows, incluindo gerenciamento de usuários, permissões, compartilhamentos de rede, serviços e políticas de acesso. Participação em rotinas de backup, monitoramento de serviços e manutenção preventiva da infraestrutura de TI, visando garantir disponibilidade e continuidade operacional. Responsável pelo controle de inventário de equipamentos, documentação técnica, instalação de softwares corporativos, formatação e preparação de máquinas, além do suporte em ambientes de rede com switches, roteadores, VPNs e serviços internos da empresa.</div>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Windows Server</span>
+            <span class="timeline-tag">Active Directory</span>
+            <span class="timeline-tag">Suporte N1/N2</span>
+            <span class="timeline-tag">Help Desk</span>
+            <span class="timeline-tag">Hardware</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <span class="timeline-cargo">Estágio</span>
+            <span class="timeline-periodo">2020 – 2021</span>
+          </div>
+          <div class="timeline-empresa"><i class="fas fa-building"></i> Digitech Soluções em TI</div>
+          <div class="timeline-desc">Atuação no atendimento e resolução de chamados de infraestrutura de TI, realizando diagnóstico e solução de problemas relacionados a redes, servidores, sistemas operacionais e dispositivos corporativos. Experiência na instalação, configuração e manutenção de servidores Windows e Linux, incluindo serviços de rede, permissões de acesso, compartilhamentos, monitoramento e suporte a aplicações internas. Responsável pela manutenção preventiva e corretiva de equipamentos de rede, como switches, roteadores, access points e firewalls, garantindo estabilidade e disponibilidade dos serviços. Suporte técnico a usuários finais de forma presencial e remota, auxiliando na configuração de estações de trabalho, instalação de softwares, resolução de falhas em hardware e software, além de orientações técnicas para melhoria da operação diária.</div>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Windows Server</span>
+            <span class="timeline-tag">Active Directory</span>
+            <span class="timeline-tag">Suporte</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="tabs-section" data-aos="fade-up">
+    <div class="section-title"><i class="fas fa-award"></i> Formação &amp; Certificados</div>
+    <div class="formacao-grid" id="cert-galeria">
+
+      <!-- Graduação -->
+      <!-- <div class="formacao-card" data-aos="fade-up" data-aos-delay="100"
+           data-img="/assets/images/certs" data-caption="Diploma — Análise de Sistemas · Unicesumar · 2026">
+        <div class="formacao-img-wrap">
+          <img src="/assets/images/certs" alt="Diploma">
+          <div class="formacao-img-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="formacao-icon"><i class="fas fa-university"></i></div>
+        <span class="formacao-badge">Graduação</span>
+        <div class="formacao-titulo">Analise e Desenvolvimento de Sistemas</div>
+        <div class="formacao-inst"><i class="fas fa-school"></i> Unicesumar</div>
+        <div class="formacao-ano"><i class="far fa-calendar"></i> 2026</div>
+      </div> -->
+
+      <!-- Certificado Proxmox -->
+      <div class="formacao-card" data-aos="fade-up" data-aos-delay="200"
+           data-img="/assets/images/certs/cert-proxmox.jpg" data-caption="Certificado Proxmox VE Administration · Proxmox Server Solutions · 2025">
+        <div class="formacao-img-wrap">
+          <img src="/assets/images/certs/cert-proxmox.jpg" alt="Certificado Proxmox">
+          <div class="formacao-img-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="formacao-icon"><i class="fas fa-certificate"></i></div>
+        <span class="formacao-badge">Certificado</span>
+        <div class="formacao-titulo">PVE / PBS / Debian / Truenas</div>
+        <div class="formacao-inst"><i class="fas fa-medal"></i> Udemy</div>
+        <div class="formacao-ano"><i class="far fa-calendar"></i> 2026</div>
+      </div>
+
+      <!-- Certificado PfSense -->
+      <div class="formacao-card" data-aos="fade-up" data-aos-delay="300"
+           data-img="/assets/images/certs/cert-pfsense.jpg" data-caption="Certificado PfSense Avançado · Udemy · 2025">
+        <div class="formacao-img-wrap">
+          <img src="/assets/images/certs/cert-pfsense.jpg" alt="Certificado PfSense">
+          <div class="formacao-img-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="formacao-icon"><i class="fas fa-certificate"></i></div>
+        <span class="formacao-badge">Certificado</span>
+        <div class="formacao-titulo">Firewall PfSense</div>
+        <div class="formacao-inst"><i class="fas fa-medal"></i> Udemy</div>
+        <div class="formacao-ano"><i class="far fa-calendar"></i> 2026</div>
+      </div>
+
+
+      <!-- CERTIFICADO DIGITECH Ético Comportamental-->
+      <div class="formacao-card" data-aos="fade-up" data-aos-delay="400"
+           data-img="/assets/images/certs/cert-relacao.jpg" data-caption="Certificado Ético Comportamental · Digitech · 2026">
+        <div class="formacao-img-wrap">
+          <img src="/assets/images/certs/cert-relacao.jpg" alt="Certificado Ético Comportamental">
+          <div class="formacao-img-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="formacao-icon"><i class="fas fa-certificate"></i></div>
+        <span class="formacao-badge">Certificado</span>
+        <div class="formacao-titulo">Treinamentos Ético Comportamental</div>
+        <div class="formacao-inst"><i class="fas fa-medal"></i> Digitech</div>
+        <div class="formacao-ano"><i class="far fa-calendar"></i> 2026</div>
+      </div>
+
+      <!-- CERTIFICADO DIGITECH GESTÃO DE CHAMADOS E ATENDIMENTOS -->
+      <div class="formacao-card" data-aos="fade-up" data-aos-delay="500"
+           data-img="/assets/images/certs/cert-gestao.jpg" data-caption="Certificado Gestão de Chamados e Atendimentos · Digitech · 2025">
+        <div class="formacao-img-wrap">
+          <img src="/assets/images/certs/cert-gestao.jpg" alt="Certificado Gestão de Chamados e Atendimentos">
+          <div class="formacao-img-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="formacao-icon"><i class="fas fa-certificate"></i></div>
+        <span class="formacao-badge">Certificado</span>
+        <div class="formacao-titulo">Gestão de Chamados e Atendimentos</div>
+        <div class="formacao-inst"><i class="fas fa-medal"></i> Digitech</div>
+        <div class="formacao-ano"><i class="far fa-calendar"></i> 2025</div>
+      </div>
+
+            <!-- CERTIFICADO Estágio Anhanguera Digitech -->
+      <div class="formacao-card" data-aos="fade-up" data-aos-delay="600"
+           data-img="/assets/images/certs/cert-estagio.png" data-caption="Certificado Conclusão de Estágio · Digitech · 2025">
+        <div class="formacao-img-wrap">
+          <img src="/assets/images/certs/cert-estagio.png" alt="Certificado Conclusão de Estágio">
+          <div class="formacao-img-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="formacao-icon"><i class="fas fa-certificate"></i></div>
+        <span class="formacao-badge">Certificado</span>
+        <div class="formacao-titulo">Conclusão Estágio</div>
+        <div class="formacao-inst"><i class="fas fa-medal"></i> Digitech</div>
+        <div class="formacao-ano"><i class="far fa-calendar"></i> 2025</div>
+      </div>
+
+
+    </div>
+    <p style="color:#475569;font-size:0.82rem;margin-top:24px;font-style:italic">
+      <i class="fas fa-info-circle"></i> Clique em qualquer card para ampliar a imagem. Use as setas ou o teclado para navegar.
+    </p>
+  </div>
+  <div class="separator"></div>
+
+  <!-- ===== MEU TIME ===== -->
+  <div class="team-section" data-aos="fade-up">
+    <div class="section-title"><i class="fas fa-users"></i> Meu Time</div>
+
+    <div class="team-grid">
+
+      <!-- Membro 1 FELIPE GOMES DA SILVA-->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="100" data-member="0">
+        <div class="team-card-photo">
+          <!-- <i class="fas fa-user"></i> -->
+          <img src="/assets/images/felipe.jpeg">
+        </div>
+        <div class="team-card-name">Felipe Gomes da Silva</div>
+        <div class="team-card-role">Desenvolvedor Back End</div>
+        <div class="team-card-desc">Especialista em ambientes Linux e automação via Ansible e Shell Script.</div>
+        <div class="team-card-socials" onclick="event.stopPropagation()">
+          <a href="https://github.com/felipegomes12" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/felipe-gomes-da-silva-48255127a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="team-card-cta"><i class="fas fa-id-card"></i> Ver perfil</div>
+      </div>
+
+      <!-- Membro 2 THALISON DOS SANTOS NUNES-->
+      <!-- <div class="team-card" data-aos="fade-up" data-aos-delay="200" data-member="1">
+        <div class="team-card-photo">
+          <img src="/assets/images/thalison.jpg">
+        </div>
+        <div class="team-card-name">Thalison dos Santos Nunes</div>
+        <div class="team-card-role">Desenvolvedor Full Stack</div>
+        <div class="team-card-desc">Apaixonado por interfaces modernas e APIs robustas com foco em UX.</div>
+        <div class="team-card-socials" onclick="event.stopPropagation()">
+          <a href="https://github.com/thalisonnunes20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/thalison-nunes-687492181/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="team-card-cta"><i class="fas fa-id-card"></i> Ver perfil</div>
+      </div> -->
+
+      <!-- Membro 3 -->
+      <!-- <div class="team-card" data-aos="fade-up" data-aos-delay="300" data-member="2">
+        <div class="team-card-photo">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="team-card-name">Carlos Moreira</div>
+        <div class="team-card-role">Especialista em Redes</div>
+        <div class="team-card-desc">Focado em arquitetura de redes corporativas, VLANs e segurança perimetral.</div>
+        <div class="team-card-cta"><i class="fas fa-id-card"></i> Ver perfil</div>
+      </div> -->
+
+      <!-- Membro 4 -->
+      <!-- <div class="team-card" data-aos="fade-up" data-aos-delay="400" data-member="3">
+        <div class="team-card-photo">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="team-card-name">Ana Ribeiro</div>
+        <div class="team-card-role">Analista de Segurança</div>
+        <div class="team-card-desc">Especialista em cybersecurity, análise de vulnerabilidades e conformidade.</div>
+        <div class="team-card-cta"><i class="fas fa-id-card"></i> Ver perfil</div>
+      </div> -->
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 - Thalison Nunes. Todos os direitos reservados.</p>
+  <p style="margin-top:8px;font-size:0.85rem">Desenvolvido por Thalison Nunes</p>
+</footer>
+
+<a href="#" class="scroll-to-top" id="scroll-to-top" title="Voltar ao Topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="/assets/js/pages/sobremim.js"></script>
+</body>
+</html>

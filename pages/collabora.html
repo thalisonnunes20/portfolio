@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collabora Online</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Collabora Online</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Edição Colaborativa • Office Online • Integração Nextcloud
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/collabora.png" alt="Collabora Online">
+    </div>
+
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Suite de edição de documentos online self-hosted integrada ao Nextcloud, baseada no motor do LibreOffice, com suporte completo a formatos Microsoft Office e edição colaborativa em tempo real via protocolo WOPI.</p>
+
+      <div class="descricao-detalhada">
+          <h3>Edição de Documentos e Planilhas</h3>
+          <ul>
+              <li>Edição completa de DOCX, XLSX e PPTX diretamente no navegador</li>
+              <li>Motor baseado no LibreOffice com excelente compatibilidade com formatos ODF</li>
+              <li>Suporte nativo a ODT, ODS, ODP e outros formatos abertos</li>
+              <li>Conversão entre formatos via API WOPI integrada</li>
+              <li>Visualização e edição de PDFs com suporte a anotações</li>
+          </ul>
+
+          <h3>Colaboração em Tempo Real</h3>
+          <ul>
+              <li>Edição simultânea por múltiplos usuários com sincronização instantânea</li>
+              <li>Controle de revisões com rastreamento de alterações por autor</li>
+              <li>Comentários inline com threads de discussão por trecho</li>
+              <li>Histórico de versões com restauração de qualquer ponto</li>
+              <li>Modo de revisão com aceitar ou rejeitar mudanças individualmente</li>
+          </ul>
+
+          <h3>Integração com Nextcloud</h3>
+          <ul>
+              <li>Abertura e edição de documentos direto no Nextcloud via app Nextcloud Office</li>
+              <li>Salvamento automático no armazenamento do Nextcloud via WOPI</li>
+              <li>Compartilhamento de documentos para edição com link externo</li>
+              <li>Controle de permissões herdado do Nextcloud por usuário e grupo</li>
+              <li>Visualização de documentos sem necessidade de instalar software local</li>
+          </ul>
+
+          <h3>Segurança e Infraestrutura</h3>
+          <ul>
+              <li>Deploy via Docker com imagem oficial <code style="color:#38bdf8">collabora/code</code></li>
+              <li>Comunicação criptografada via HTTPS entre Nextcloud e Collabora (CODE)</li>
+              <li>Isolamento de rede com containers em bridge dedicada</li>
+              <li>Autenticação via protocolo WOPI sem necessidade de chave JWT externa</li>
+              <li>Logs de auditoria de acesso e edição de documentos</li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+              <span class="badge">Collabora</span>
+              <span class="badge">CODE</span>
+              <span class="badge">Nextcloud</span>
+              <span class="badge">Docker</span>
+              <span class="badge">LibreOffice</span>
+              <span class="badge">WOPI</span>
+              <span class="badge">ODF</span>
+              <span class="badge">DOCX</span>
+              <span class="badge">XLSX</span>
+              <span class="badge">Self-Hosted</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Documentação -->
+  <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+      <h2>Documentação</h2>
+
+      <div class="tabs-header">
+          <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+          <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+          <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+      </div>
+
+      <div class="tabs-content-container">
+
+          <!-- ABA GITHUB -->
+          <div class="tab-content active" id="tab-github">
+              <div class="github-embed">
+                  <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                      <i class="fab fa-github"></i> Projeto no GitHub
+                  </h3>
+                  <div id="github-card" style="
+                      background: #0d1117;
+                      border-radius: 12px;
+                      padding: 25px;
+                      border: 1px solid #30363d;
+                      margin-bottom: 20px;">
+                      <div id="github-content" style="text-align: center; padding: 20px 0;">
+                          <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                              <i class="fas fa-spinner fa-spin"></i>
+                          </div>
+                          <p style="color: #8b949e; margin-top: 10px;">Carregando informações do GitHub...</p>
+                      </div>
+                  </div>
+                  <div style="text-align: center;">
+                      <a id="github-link" href="#" target="_blank" style="
+                          display: inline-flex; align-items: center; gap: 10px;
+                          background: #238636; color: white;
+                          padding: 12px 25px; border-radius: 8px;
+                          text-decoration: none; font-weight: 600;
+                          transition: background 0.3s;">
+                          <i class="fab fa-github"></i>
+                          <span id="btn-text">Abrir no GitHub</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA GALERIA -->
+          <div class="tab-content" id="tab-galeria">
+              <p style="text-align: center;">Imagens e capturas de tela do projeto Collabora Online:</p>
+              <div class="galeria-projeto">
+                  <div class="galeria-item">
+                      <img src="/assets/images/collabora-editor1.jpg" alt="Editor Collabora">
+                      <div class="galeria-descricao">
+                          <strong>Editor de Documentos</strong><br>
+                          Edição completa de DOCX no navegador
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/collabora-nextcloud.jpg" alt="Collabora no Nextcloud">
+                      <div class="galeria-descricao">
+                          <strong>Integração com Nextcloud</strong><br>
+                          Abertura e edição direto na interface do Nextcloud
+                      </div>
+                  </div>
+                  <!-- <div class="galeria-item">
+                      <img src="/images/collabora-collab.jpg" alt="Colaboração Collabora">
+                      <div class="galeria-descricao">
+                          <strong>Edição Colaborativa</strong><br>
+                          Múltiplos usuários editando simultaneamente
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+
+          <!-- ABA RECURSOS -->
+          <div class="tab-content" id="tab-recursos">
+              <h3>Recursos Técnicos do Projeto Collabora Online</h3>
+              <ul>
+                  <li><strong>Deploy:</strong> Container Docker com imagem oficial <code style="color:#38bdf8">collabora/code</code> (Collabora Online Development Edition)</li>
+                  <li><strong>Integração:</strong> App Nextcloud Office instalado no Nextcloud com URL do CODE configurada</li>
+                  <li><strong>Protocolo:</strong> WOPI (Web Application Open Platform Interface) para comunicação segura entre Nextcloud e Collabora</li>
+                  <li><strong>Rede:</strong> Containers em bridge interna, expostos via Nginx Proxy Manager</li>
+                  <li><strong>SSL/TLS:</strong> Certificado Let's Encrypt gerenciado pelo Nginx Proxy Manager</li>
+                  <li><strong>Armazenamento:</strong> Volume persistente para configurações e logs do CODE</li>
+                  <li><strong>Recursos:</strong> 2 vCPU e 4 GB RAM dedicados ao container para edição fluida</li>
+                  <li><strong>Formatos:</strong> DOCX, XLSX, PPTX, ODT, ODS, ODP e PDF com conversão automática via LibreOffice</li>
+              </ul>
+
+              <div style="margin-top: 20px;">
+                  <span class="badge">Collabora</span>
+                  <span class="badge">CODE</span>
+                  <span class="badge">LibreOffice</span>
+                  <span class="badge">Nextcloud</span>
+                  <span class="badge">Docker</span>
+                  <span class="badge">WOPI</span>
+                  <span class="badge">Nginx</span>
+                  <span class="badge">SSL/TLS</span>
+                  <span class="badge">ODF</span>
+                  <span class="badge">Self-Hosted</span>
+              </div>
+
+              <div class="github-note">
+                  <strong>Nota:</strong> Este projeto implementa o Collabora Online (CODE) integrado ao Nextcloud, oferecendo uma suite de escritório online completa e self-hosted com edição colaborativa em tempo real. Baseado no motor do LibreOffice, garante excelente compatibilidade com formatos ODF e Microsoft Office, com controle absoluto sobre os documentos sem depender de serviços externos como Google Docs ou Office 365.
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</main>
+
+<!-- Modal da Galeria -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+
+<!-- Partículas globais -->
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "CollaboraOnline";
+const SEU_REPOSITORIO = "online";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

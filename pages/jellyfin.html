@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jellyfin</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Jellyfin</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Streaming • Mídia • Servidor Self-Hosted
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/jellyfin.jpg" alt="Jellyfin">
+    </div>
+
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Servidor de mídia self-hosted gratuito e open-source para streaming de filmes, séries, músicas e fotos em qualquer dispositivo.</p>
+
+      <div class="descricao-detalhada">
+          <h3>Streaming de Filmes e Séries</h3>
+          <ul>
+              <li>Streaming adaptativo com transcodificação em tempo real</li>
+              <li>Suporte a praticamente todos os formatos de vídeo (MKV, MP4, AVI, etc.)</li>
+              <li>Legendas externas e embutidas com suporte a ASS, SRT e PGS</li>
+              <li>Capítulos, trailers e extras organizados automaticamente</li>
+              <li>Metadados automáticos via TheMovieDB, TheTVDB e MusicBrainz</li>
+          </ul>
+
+          <h3>Transcodificação e Qualidade</h3>
+          <ul>
+              <li>Transcodificação por hardware com NVENC, VAAPI e QuickSync</li>
+              <li>Direct Play e Direct Stream para clientes compatíveis</li>
+              <li>Suporte a HDR, Dolby Vision e áudio multicanal</li>
+              <li>Controle de qualidade de stream por perfil de usuário</li>
+              <li>Sincronização de progresso de reprodução entre dispositivos</li>
+          </ul>
+
+          <h3>Usuários e Controle Parental</h3>
+          <ul>
+              <li>Múltiplos usuários com bibliotecas e permissões independentes</li>
+              <li>Controle parental com restrições por classificação etária</li>
+              <li>PIN de acesso e restrição de conteúdo por usuário</li>
+              <li>Histórico de visualizações e estatísticas de uso</li>
+              <li>Convites para usuários externos sem expor o servidor</li>
+          </ul>
+
+          <h3>Plugins e Integrações</h3>
+          <ul>
+              <li>Integração com Sonarr, Radarr e Lidarr para automação de biblioteca</li>
+              <li>Plugin de letras de músicas e informações de álbuns</li>
+              <li>Suporte a DLNA e Chromecast para TVs e dispositivos externos</li>
+              <li>Apps nativos para Android, iOS, Android TV, Apple TV e Roku</li>
+              <li>Integração com MeTube para adicionar vídeos à biblioteca</li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+              <span class="badge">Jellyfin</span>
+              <span class="badge">Docker</span>
+              <span class="badge">VAAPI</span>
+              <span class="badge">DLNA</span>
+              <span class="badge">Sonarr</span>
+              <span class="badge">Radarr</span>
+              <span class="badge">Self-Hosted</span>
+              <span class="badge">HDR</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Documentação (CORRIGIDA) -->
+  <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+      <h2>Documentação</h2>
+
+      <div class="tabs-header">
+          <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+          <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+          <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+      </div>
+
+      <div class="tabs-content-container">
+
+          <!-- ABA GITHUB -->
+          <div class="tab-content active" id="tab-github">
+              <div class="github-embed">
+                  <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                      <i class="fab fa-github"></i> Projeto no GitHub
+                  </h3>
+                  <div id="github-card" style="
+                      background: #0d1117;
+                      border-radius: 12px;
+                      padding: 25px;
+                      border: 1px solid #30363d;
+                      margin-bottom: 20px;">
+                      <div id="github-content" style="text-align: center; padding: 20px 0;">
+                          <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                              <i class="fas fa-spinner fa-spin"></i>
+                          </div>
+                          <p style="color: #8b949e; margin-top: 10px;">Carregando informações do GitHub...</p>
+                      </div>
+                  </div>
+                  <div style="text-align: center;">
+                      <a id="github-link" href="#" target="_blank" style="
+                          display: inline-flex; align-items: center; gap: 10px;
+                          background: #238636; color: white;
+                          padding: 12px 25px; border-radius: 8px;
+                          text-decoration: none; font-weight: 600;
+                          transition: background 0.3s;">
+                          <i class="fab fa-github"></i>
+                          <span id="btn-text">Abrir no GitHub</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA GALERIA -->
+          <div class="tab-content" id="tab-galeria">
+              <p style="text-align: center;">Imagens e capturas de tela do projeto Jellyfin:</p>
+              <div class="galeria-projeto">
+                  <div class="galeria-item">
+                      <img src="/assets/images/jellyfin-dashboard.jpg" alt="Dashboard Jellyfin">
+                      <div class="galeria-descricao">
+                          <strong>Dashboard Principal</strong><br>
+                          Biblioteca de filmes e séries organizada
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/jellyfin-player.jpg" alt="Player Jellyfin">
+                      <div class="galeria-descricao">
+                          <strong>Player de Vídeo</strong><br>
+                          Streaming com suporte a legendas e áudio multicanal
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/jellyfin-library.jpg" alt="Biblioteca Jellyfin">
+                      <div class="galeria-descricao">
+                          <strong>Biblioteca de Mídia</strong><br>
+                          Metadados automáticos com posters e sinopses
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA RECURSOS -->
+          <div class="tab-content" id="tab-recursos">
+              <h3>Recursos Técnicos do Projeto Jellyfin</h3>
+              <ul>
+                  <li><strong>Deploy:</strong> Container Docker com volume NFS montado no TrueNAS</li>
+                  <li><strong>Transcodificação:</strong> Aceleração por hardware via VAAPI (Intel Quick Sync)</li>
+                  <li><strong>Biblioteca:</strong> Filmes, séries, músicas e fotos organizados por tipo</li>
+                  <li><strong>Acesso:</strong> Nginx Proxy Manager com SSL/TLS e domínio externo</li>
+                  <li><strong>Automação:</strong> Integrado ao Sonarr e Radarr para download automático</li>
+                  <li><strong>Downloads:</strong> MeTube integrado para adicionar conteúdo à biblioteca</li>
+                  <li><strong>Clientes:</strong> Apps em Android TV, smartphones e navegadores web</li>
+              </ul>
+
+              <div style="margin-top: 20px;">
+                  <span class="badge">Jellyfin</span>
+                  <span class="badge">Docker</span>
+                  <span class="badge">VAAPI</span>
+                  <span class="badge">NFS</span>
+                  <span class="badge">Nginx</span>
+                  <span class="badge">SSL/TLS</span>
+                  <span class="badge">Sonarr</span>
+                  <span class="badge">Radarr</span>
+                  <span class="badge">MeTube</span>
+                  <span class="badge">Self-Hosted</span>
+              </div>
+
+              <div class="github-note">
+                  <strong>Nota:</strong> Este projeto implementa o Jellyfin como servidor de streaming self-hosted completo, com transcodificação por hardware, biblioteca gerenciada automaticamente via Sonarr e Radarr, armazenamento centralizado no TrueNAS e acesso seguro de qualquer lugar, substituindo serviços de streaming pagos com controle total sobre o conteúdo.
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</main>
+
+<!-- Modal da Galeria -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+
+<!-- Partículas globais -->
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "jellyfin";
+const SEU_REPOSITORIO = "jellyfin";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

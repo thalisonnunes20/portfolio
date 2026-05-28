@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immich</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Immich</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Fotos • Vídeos • Backup Self-Hosted com IA
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/immich.jpg" alt="Immich">
+    </div>
+
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Solução self-hosted de backup e gerenciamento de fotos e vídeos com reconhecimento facial por IA, alternativa ao Google Photos com privacidade total.</p>
+
+      <div class="descricao-detalhada">
+          <h3>Backup e Sincronização</h3>
+          <ul>
+              <li>Backup automático de fotos e vídeos via app mobile (iOS e Android)</li>
+              <li>Sincronização em tempo real ao conectar na rede Wi-Fi</li>
+              <li>Suporte a uploads em background sem abrir o aplicativo</li>
+              <li>Preservação de metadados EXIF, localização e data original</li>
+              <li>Deduplicação automática para evitar arquivos duplicados</li>
+          </ul>
+
+          <h3>Inteligência Artificial</h3>
+          <ul>
+              <li>Reconhecimento facial automático com agrupamento por pessoa</li>
+              <li>Classificação de objetos, animais, cenas e atividades por IA</li>
+              <li>Busca semântica por texto (ex: "praia com cachorro")</li>
+              <li>Geração automática de memórias e álbuns por data e local</li>
+              <li>Machine learning local sem enviar dados para servidores externos</li>
+          </ul>
+
+          <h3>Organização e Compartilhamento</h3>
+          <ul>
+              <li>Álbuns manuais e automáticos com compartilhamento por link</li>
+              <li>Linha do tempo cronológica com visualização por mapa</li>
+              <li>Suporte a múltiplos usuários com quotas individuais</li>
+              <li>Favoritos, arquivamento e lixeira com retenção configurável</li>
+              <li>Visualizador de RAW, HEIC, Live Photos e vídeos</li>
+          </ul>
+
+          <h3>Infraestrutura e Armazenamento</h3>
+          <ul>
+              <li>Deploy via Docker Compose com múltiplos serviços orquestrados</li>
+              <li>Integração com armazenamento externo via NFS e S3-compatible</li>
+              <li>Banco de dados PostgreSQL com pgvector para busca por similaridade</li>
+              <li>Transcodificação de vídeo com aceleração por hardware (NVENC, VAAPI)</li>
+              <li>API REST e suporte ao protocolo importe de bibliotecas externas</li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+              <span class="badge">Immich</span>
+              <span class="badge">Docker</span>
+              <span class="badge">PostgreSQL</span>
+              <span class="badge">Machine Learning</span>
+              <span class="badge">Self-Hosted</span>
+              <span class="badge">iOS</span>
+              <span class="badge">Android</span>
+              <span class="badge">S3</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Documentação (CORRIGIDA) -->
+  <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+      <h2>Documentação</h2>
+
+      <div class="tabs-header">
+          <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+          <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+          <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+      </div>
+
+      <div class="tabs-content-container">
+
+          <!-- ABA GITHUB -->
+          <div class="tab-content active" id="tab-github">
+              <div class="github-embed">
+                  <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                      <i class="fab fa-github"></i> Projeto no GitHub
+                  </h3>
+                  <div id="github-card" style="
+                      background: #0d1117;
+                      border-radius: 12px;
+                      padding: 25px;
+                      border: 1px solid #30363d;
+                      margin-bottom: 20px;">
+                      <div id="github-content" style="text-align: center; padding: 20px 0;">
+                          <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                              <i class="fas fa-spinner fa-spin"></i>
+                          </div>
+                          <p style="color: #8b949e; margin-top: 10px;">Carregando informações do GitHub...</p>
+                      </div>
+                  </div>
+                  <div style="text-align: center;">
+                      <a id="github-link" href="#" target="_blank" style="
+                          display: inline-flex; align-items: center; gap: 10px;
+                          background: #238636; color: white;
+                          padding: 12px 25px; border-radius: 8px;
+                          text-decoration: none; font-weight: 600;
+                          transition: background 0.3s;">
+                          <i class="fab fa-github"></i>
+                          <span id="btn-text">Abrir no GitHub</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA GALERIA -->
+          <div class="tab-content" id="tab-galeria">
+              <p style="text-align: center;">Imagens e capturas de tela do projeto Immich:</p>
+              <div class="galeria-projeto">
+                  <div class="galeria-item">
+                      <img src="/assets/images/immich-dashboard.jpg" alt="Dashboard Immich">
+                      <div class="galeria-descricao">
+                          <strong>Linha do Tempo</strong><br>
+                          Visualização cronológica de fotos e vídeos
+                      </div>
+                  </div>
+                  <!-- <div class="galeria-item">
+                      <img src="/assets/images/immich-faces.jpg" alt="Reconhecimento Facial Immich">
+                      <div class="galeria-descricao">
+                          <strong>Reconhecimento Facial</strong><br>
+                          Agrupamento automático por pessoa via IA
+                      </div>
+                  </div> -->
+                  <div class="galeria-item">
+                      <img src="/assets/images/immich-albums.jpg" alt="Álbuns Immich">
+                      <div class="galeria-descricao">
+                          <strong>Álbuns Compartilhados</strong><br>
+                          Organização e compartilhamento de coleções
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA RECURSOS -->
+          <div class="tab-content" id="tab-recursos">
+              <h3>Recursos Técnicos do Projeto Immich</h3>
+              <ul>
+                  <li><strong>Deploy:</strong> Docker Compose com containers server, microservices, ML e Redis</li>
+                  <li><strong>Banco de dados:</strong> PostgreSQL com extensão pgvector para busca vetorial</li>
+                  <li><strong>Armazenamento:</strong> Volume NFS montado no TrueNAS para persistência</li>
+                  <li><strong>Machine Learning:</strong> Modelo local CLIP para busca semântica e reconhecimento facial</li>
+                  <li><strong>Transcodificação:</strong> Aceleração por hardware via VAAPI (Intel Quick Sync)</li>
+                  <li><strong>Acesso:</strong> Nginx Proxy Manager com SSL/TLS e domínio externo</li>
+                  <li><strong>Backup:</strong> Fotos originais replicadas no TrueNAS via ZFS snapshot</li>
+              </ul>
+
+              <div style="margin-top: 20px;">
+                  <span class="badge">Immich</span>
+                  <span class="badge">Docker Compose</span>
+                  <span class="badge">PostgreSQL</span>
+                  <span class="badge">pgvector</span>
+                  <span class="badge">Redis</span>
+                  <span class="badge">Machine Learning</span>
+                  <span class="badge">VAAPI</span>
+                  <span class="badge">NFS</span>
+                  <span class="badge">ZFS</span>
+                  <span class="badge">Self-Hosted</span>
+              </div>
+
+              <div class="github-note">
+                  <strong>Nota:</strong> Este projeto implementa o Immich como substituto self-hosted do Google Photos, com backup automático via app mobile, reconhecimento facial por IA local, busca semântica e armazenamento integrado ao TrueNAS, garantindo privacidade total dos dados sem depender de serviços na nuvem.
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</main>
+
+<!-- Modal da Galeria -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+
+<!-- Partículas globais -->
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "immich-app";
+const SEU_REPOSITORIO = "immich";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

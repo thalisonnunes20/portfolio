@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Docker</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Containers • Docker Compose • CI/CD e DevOps
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/docker.jpg" alt="Docker">
+    </div>
+
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Plataforma de containerização para empacotamento, distribuição e execução de aplicações em ambientes isolados, garantindo portabilidade e consistência entre desenvolvimento e produção.</p>
+
+      <div class="descricao-detalhada">
+          <h3>Containers e Imagens</h3>
+          <ul>
+              <li>Criação de imagens customizadas via Dockerfile com multi-stage build</li>
+              <li>Isolamento completo de processos, rede e sistema de arquivos por container</li>
+              <li>Camadas de imagem com cache inteligente para builds mais rápidos</li>
+              <li>Registro e versionamento de imagens no Docker Hub e registries privados</li>
+              <li>Containers efêmeros e stateless para deploy consistente em qualquer ambiente</li>
+          </ul>
+
+          <h3>Docker Compose e Stacks</h3>
+          <ul>
+              <li>Orquestração de múltiplos serviços com docker-compose.yml declarativo</li>
+              <li>Definição de redes, volumes e dependências entre serviços</li>
+              <li>Variáveis de ambiente via arquivos .env para configuração por ambiente</li>
+              <li>Escalabilidade horizontal com réplicas de serviços individuais</li>
+              <li>Profiles para subir subconjuntos de serviços conforme necessidade</li>
+          </ul>
+
+          <h3>Redes e Volumes</h3>
+          <ul>
+              <li>Redes bridge, overlay e host com isolamento e roteamento configurável</li>
+              <li>Volumes nomeados e bind mounts para persistência de dados</li>
+              <li>Comunicação entre containers via DNS interno por nome de serviço</li>
+              <li>Volumes NFS e CIFS para integração com armazenamento externo</li>
+              <li>Drivers de volume customizados para backends de armazenamento avançados</li>
+          </ul>
+
+          <h3>Segurança e Boas Práticas</h3>
+          <ul>
+              <li>Execução de containers com usuário não-root para reduzir superfície de ataque</li>
+              <li>Secrets do Docker para injeção segura de credenciais em serviços</li>
+              <li>Limitação de recursos de CPU e memória por container</li>
+              <li>Scan de vulnerabilidades em imagens com Docker Scout</li>
+              <li>Política de restart automático para alta disponibilidade dos serviços</li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+              <span class="badge">Docker</span>
+              <span class="badge">Docker Compose</span>
+              <span class="badge">Dockerfile</span>
+              <span class="badge">CI/CD</span>
+              <span class="badge">DevOps</span>
+              <span class="badge">Volumes</span>
+              <span class="badge">Networking</span>
+              <span class="badge">Self-Hosted</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Documentação (CORRIGIDA) -->
+  <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+      <h2>Documentação</h2>
+
+      <div class="tabs-header">
+          <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+          <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+          <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+      </div>
+
+      <div class="tabs-content-container">
+
+          <!-- ABA GITHUB -->
+          <div class="tab-content active" id="tab-github">
+              <div class="github-embed">
+                  <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                      <i class="fab fa-github"></i> Projeto no GitHub
+                  </h3>
+                  <div id="github-card" style="
+                      background: #0d1117;
+                      border-radius: 12px;
+                      padding: 25px;
+                      border: 1px solid #30363d;
+                      margin-bottom: 20px;">
+                      <div id="github-content" style="text-align: center; padding: 20px 0;">
+                          <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                              <i class="fas fa-spinner fa-spin"></i>
+                          </div>
+                          <p style="color: #8b949e; margin-top: 10px;">Carregando informações do GitHub...</p>
+                      </div>
+                  </div>
+                  <div style="text-align: center;">
+                      <a id="github-link" href="#" target="_blank" style="
+                          display: inline-flex; align-items: center; gap: 10px;
+                          background: #238636; color: white;
+                          padding: 12px 25px; border-radius: 8px;
+                          text-decoration: none; font-weight: 600;
+                          transition: background 0.3s;">
+                          <i class="fab fa-github"></i>
+                          <span id="btn-text">Abrir no GitHub</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA GALERIA -->
+          <div class="tab-content" id="tab-galeria">
+              <p style="text-align: center;">Imagens e capturas de tela do projeto Docker:</p>
+              <div class="galeria-projeto">
+                  <div class="galeria-item">
+                      <img src="/assets/images/docker-compose.jpg" alt="Docker Compose">
+                      <div class="galeria-descricao">
+                          <strong>Docker Compose</strong><br>
+                          Stack de serviços orquestrados em produção
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/docker-containers.jpg" alt="Containers Docker">
+                      <div class="galeria-descricao">
+                          <strong>Containers em Execução</strong><br>
+                          Visão geral dos serviços ativos no host
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/docker-network.jpg" alt="Rede Docker">
+                      <div class="galeria-descricao">
+                          <strong>Redes</strong><br>
+                          Topologia de rede 
+                      </div>
+                  </div>
+                  <div class="galeria-item">
+                      <img src="/assets/images/docker-volume.jpg" alt="Volume">
+                      <div class="galeria-descricao">
+                          <strong>Volumes</strong><br>
+                          Persistência de dados
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ABA RECURSOS -->
+          <div class="tab-content" id="tab-recursos">
+              <h3>Recursos Técnicos do Projeto Docker</h3>
+              <ul>
+                  <li><strong>Host:</strong> Docker Engine instalado em LXC privilegiado no Proxmox VE</li>
+                  <li><strong>Gestão:</strong> Portainer CE para gerenciamento visual de todos os containers</li>
+                  <li><strong>Compose:</strong> Todos os serviços declarados em docker-compose.yml versionados no GitHub</li>
+                  <li><strong>Redes:</strong> Bridges dedicadas por stack com isolamento entre serviços</li>
+                  <li><strong>Volumes:</strong> Dados persistentes em NFS montado no TrueNAS via bind mount</li>
+                  <li><strong>Proxy:</strong> Nginx Proxy Manager como ponto de entrada único com SSL/TLS</li>
+                  <li><strong>Segurança:</strong> Containers sem privilégios de root e limitação de recursos por serviço</li>
+              </ul>
+
+              <div style="margin-top: 20px;">
+                  <span class="badge">Docker Engine</span>
+                  <span class="badge">Docker Compose</span>
+                  <span class="badge">Dockerfile</span>
+                  <span class="badge">Portainer</span>
+                  <span class="badge">Proxmox LXC</span>
+                  <span class="badge">NFS</span>
+                  <span class="badge">TrueNAS</span>
+                  <span class="badge">Nginx</span>
+                  <span class="badge">SSL/TLS</span>
+                  <span class="badge">DevOps</span>
+              </div>
+
+              <div class="github-note">
+                  <strong>Nota:</strong> Este projeto centraliza toda a infraestrutura de serviços self-hosted em containers Docker, com stacks declarativas versionadas no GitHub, armazenamento persistente no TrueNAS e gerenciamento visual via Portainer, demonstrando habilidades em containerização, orquestração e operação de ambientes de produção baseados em Docker.
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</main>
+
+<!-- Modal da Galeria -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+
+<!-- Partículas globais -->
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "docker";
+const SEU_REPOSITORIO = "cli";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nginx Proxy Manager</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Nginx Proxy Manager</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Proxy Reverso • SSL/TLS • Gerenciamento Web
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/nginx.jpg">
+    </div>
+    
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Solução de proxy reverso com interface web para gerenciamento simplificado de domínios e certificados.</p>
+      
+      <div class="descricao-detalhada">
+          <h3>Proxy Reverso e Load Balancing</h3>
+          <ul>
+              <li>Encaminhamento de tráfego para serviços internos</li>
+              <li>Load balancing entre múltiplos servidores back-end</li>
+              <li>Health checks para monitoramento de disponibilidade</li>
+              <li>Cache de conteúdo estático para performance</li>
+              <li>Rate limiting para proteção contra DDoS</li>
+          </ul>
+          
+          <h3>Gerenciamento de Certificados SSL</h3>
+          <ul>
+              <li>Obtenção automática de certificados Let's Encrypt</li>
+              <li>Renovação automática de certificados</li>
+              <li>Suporte a wildcard certificates</li>
+              <li>Força HTTPS com redirect automático</li>
+              <li>HTTP/2 e HTTP/3 (QUIC) habilitados</li>
+          </ul>
+          
+          <h3>Interface Web Intuitiva</h3>
+          <ul>
+              <li>Dashboard com status de todos os proxies</li>
+              <li>CRUD completo de host redirections</li>
+              <li>Editor de configurações Nginx avançado</li>
+              <li>Logs de acesso em tempo real</li>
+              <li>Autenticação básica para acesso restrito</li>
+          </ul>
+          
+          <h3>Segurança e Performance</h3>
+          <ul>
+              <li>Web Application Firewall (ModSecurity)</li>
+              <li>Proteção contra bots e scanners</li>
+              <li>Gzip e Brotli compression</li>
+              <li>Configuração otimizada para performance</li>
+              <li>Backup automático de configurações</li>
+          </ul>
+          
+          <div style="margin-top: 20px;">
+              <span class="badge">Nginx</span>
+              <span class="badge">Let's Encrypt</span>
+              <span class="badge">SSL/TLS</span>
+              <span class="badge">Proxy Reverso</span>
+              <span class="badge">Load Balancing</span>
+              <span class="badge">Docker</span>
+              <span class="badge">MariaDB</span>
+              <span class="badge">Node.js</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Documentação -->
+<div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+    <h2>Documentação</h2>
+    
+    <div class="tabs-header">
+        <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+        <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+        <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+    </div>
+    
+    <div class="tabs-content-container">
+        <div class="tab-content active" id="tab-github">
+            <div class="github-embed">
+                <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                    <i class="fab fa-github"></i> Projeto no GitHub
+                </h3>
+                
+                <!-- Card com informações da API -->
+                <div id="github-card" style="
+                    background: #0d1117;
+                    border-radius: 12px;
+                    padding: 25px;
+                    border: 1px solid #30363d;
+                    margin-bottom: 20px;">
+                    
+                    <div id="github-content" style="text-align: center; padding: 20px 0;">
+                        <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <p style="color: #8b949e; margin-top: 10px;">
+                            Carregando informações do GitHub...
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Botão para abrir no GitHub -->
+                <div style="text-align: center;">
+                    <a id="github-link" 
+                       href="#" 
+                       target="_blank" 
+                       style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            background: #238636;
+                            color: white;
+                            padding: 12px 25px;
+                            border-radius: 8px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            transition: background 0.3s;">
+                        <i class="fab fa-github"></i>
+                        <span id="btn-text">Abrir no GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-galeria">
+            <p style="text-align: center;">Imagens e capturas de tela da implementação do Nginx Proxy Manager:</p>
+            
+            <div class="galeria-projeto">
+                <!-- IMAGEM 1 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/nginx-dashboard.jpg" alt="Dashboard do Nginx Proxy Manager">
+                    <div class="galeria-descricao">
+                        <strong>Dashboard Principal</strong><br>
+                        Interface de administração do Nginx Proxy Manager
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 2 -->
+                <!-- <div class="galeria-item">
+                    <img src="/assets/images/nginx-proxies.jpg" alt="Gerenciamento de Proxies">
+                    <div class="galeria-descricao">
+                        <strong>Gerenciamento de Proxies</strong><br>
+                        Configuração de redirecionamentos e proxies
+                    </div>
+                </div> -->
+                
+                <!-- IMAGEM 3 -->
+                <!-- <div class="galeria-item">
+                    <img src="/assets/images/nginx-ssl.jpg" alt="Gerenciamento de SSL">
+                    <div class="galeria-descricao">
+                        <strong>Gerenciamento de SSL</strong><br>
+                        Configuração de certificados Let's Encrypt
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-recursos">
+            <h3>Recursos Técnicos do Projeto</h3>
+            <ul>
+                <li><strong>Plataforma:</strong> Nginx Proxy Manager 2.11</li>
+                <li><strong>Container:</strong> Docker Compose com 3 serviços</li>
+                <li><strong>Banco de Dados:</strong> MariaDB para armazenamento</li>
+                <li><strong>SSL:</strong> Let's Encrypt com auto-renewal</li>
+                <li><strong>Proxy:</strong> Nginx 1.24 com configurações customizadas</li>
+                <li><strong>Monitoramento:</strong> Logs centralizados + Grafana</li>
+                <li><strong>Backup:</strong> Scripts para backup de configurações</li>
+            </ul>
+            
+            <div style="margin-top: 20px;">
+                <span class="badge">Nginx 1.24</span>
+                <span class="badge">Docker</span>
+                <span class="badge">Let's Encrypt</span>
+                <span class="badge">MariaDB</span>
+                <span class="badge">Node.js 18</span>
+                <span class="badge">Proxy Reverso</span>
+                <span class="badge">Load Balancing</span>
+            </div>
+            
+            <div class="github-note">
+                <strong>Nota:</strong> Este projeto foi implementado em ambiente Docker com configurações personalizadas para alta disponibilidade e segurança.
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<!-- Modal da Galeria -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+<!-- Partículas globais -->
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "nginx";
+const SEU_REPOSITORIO = "documentation";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>

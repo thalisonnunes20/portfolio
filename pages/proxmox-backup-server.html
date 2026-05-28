@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxmox Backup Server</title>
+<link rel="icon" type="/image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
+
+<a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
+
+<header>
+  <h1 data-aos="fade-up">Proxmox Backup Server</h1>
+  <p data-aos="fade-up" data-aos-delay="200" style="color:#94a3b8;font-size:1.2rem">
+    Backup • Deduplicação • Recuperação de Desastres
+  </p>
+</header>
+
+<main>
+  <div class="content-desktop">
+    <div class="image-container" data-aos="fade-up">
+      <img src="/assets/images/proxmox-backup-server.jpg" alt="Proxmox Backup Server">
+    </div>
+    
+    <div class="description-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Descrição</h2>
+      <p>Solução enterprise de backup e recuperação com deduplicação em nível de bloco e criptografia integrada.</p>
+      
+      <div class="descricao-detalhada">
+          <h3>Backup Eficiente com Deduplicação</h3>
+          <ul>
+              <li>Deduplicação em nível de bloco para economizar até 90% de espaço</li>
+              <li>Backup incremental e diferencial</li>
+              <li>Verificação de integridade automática com checksums</li>
+              <li>Compactação em tempo real (zstd, lzo, gzip)</li>
+              <li>Backup de VMs em execução sem downtime</li>
+          </ul>
+          
+          <h3>Criptografia e Segurança</h3>
+          <ul>
+              <li>Criptografia AES-256-GCM para dados em repouso</li>
+              <li>Suporte a chaves GPG para backup de arquivos</li>
+              <li>Autenticação com token e chaves de API</li>
+              <li>Controle de acesso baseado em função (RBAC)</li>
+              <li>Audit log completo de todas as operações</li>
+          </ul>
+          
+          <h3>Recuperação de Desastres</h3>
+          <ul>
+              <li>Recuperação granular de arquivos individuais</li>
+              <li>Restauração completa de VMs em minutos</li>
+              <li>Verificação de backup antes da restauração</li>
+              <li>Restauração em local diferente do original</li>
+              <li>Scripts de pré/pós execução para automatização</li>
+          </ul>
+          
+          <h3>Integração com Proxmox VE</h3>
+          <ul>
+              <li>Integração nativa com Proxmox Virtual Environment</li>
+              <li>Backup de VMs e containers diretamente da interface</li>
+              <li>Agendamento de backups via GUI do Proxmox</li>
+              <li>Replicação de dados entre datacenters</li>
+              <li>Monitoramento centralizado de todos os backups</li>
+          </ul>
+          
+          <div style="margin-top: 20px;">
+              <span class="badge">Proxmox Backup Server 3.x</span>
+              <span class="badge">Deduplicação</span>
+              <span class="badge">Criptografia AES-256</span>
+              <span class="badge">Backup Incremental</span>
+              <span class="badge">Restauração Granular</span>
+              <span class="badge">Proxmox VE Integration</span>
+              <span class="badge">Replicação</span>
+              <span class="badge">REST API</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nova Seção Documentação (CORRIGIDA) -->
+<div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
+    <h2>Documentação</h2>
+    
+    <div class="tabs-header">
+        <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
+        <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
+        <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+    </div>
+    
+    <div class="tabs-content-container">
+        <div class="tab-content active" id="tab-github">
+            <div class="github-embed">
+                <h3 style="color: #f8fafc; margin-bottom: 20px;">
+                    <i class="fab fa-github"></i> Projeto no GitHub
+                </h3>
+                
+                <!-- Card com informações da API -->
+                <div id="github-card" style="
+                    background: #0d1117;
+                    border-radius: 12px;
+                    padding: 25px;
+                    border: 1px solid #30363d;
+                    margin-bottom: 20px;">
+                    
+                    <div id="github-content" style="text-align: center; padding: 20px 0;">
+                        <div class="loading-spinner" style="font-size: 2rem; color: #38bdf8;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <p style="color: #8b949e; margin-top: 10px;">
+                            Carregando informações do GitHub...
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Botão para abrir no GitHub -->
+                <div style="text-align: center;">
+                    <a id="github-link" 
+                       href="#" 
+                       target="_blank" 
+                       style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                            background: #238636;
+                            color: white;
+                            padding: 12px 25px;
+                            border-radius: 8px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            transition: background 0.3s;">
+                        <i class="fab fa-github"></i>
+                        <span id="btn-text">Abrir no GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-galeria">
+            <p style="text-align: center;">Imagens e capturas de tela do projeto Proxmox Backup Server:</p>
+            
+            <div class="galeria-projeto">
+                <!-- IMAGEM 1 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/proxmox-backup-dashboard.jpg" alt="Dashboard Proxmox Backup">
+                    <div class="galeria-descricao">
+                        <strong>Dashboard Principal</strong><br>
+                        Interface de gerenciamento do Proxmox Backup Server
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 2 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/proxmox-backup-storage.jpg" alt="Configuração de Storage">
+                    <div class="galeria-descricao">
+                        <strong>Configuração de Storage</strong><br>
+                        Gerenciamento de repositórios de backup
+                    </div>
+                </div>
+                
+                <!-- IMAGEM 3 -->
+                <div class="galeria-item">
+                    <img src="/assets/images/proxmox-backup-restore.jpg" alt="Restauração de Backup">
+                    <div class="galeria-descricao">
+                        <strong>Restauração de Backup</strong><br>
+                        Interface para recuperação de dados
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="tab-recursos">
+            <h3>Recursos Técnicos do Projeto Proxmox Backup Server</h3>
+            <ul>
+                <li><strong>Arquitetura:</strong> Servidor dedicado com 32TB de storage</li>
+                <li><strong>Deduplicação:</strong> Taxa média de 80% de redução</li>
+                <li><strong>Criptografia:</strong> AES-256-GCM para todos os backups</li>
+                <li><strong>Retenção:</strong> Política de 90 dias para VMs críticas</li>
+                <li><strong>Monitoramento:</strong> Integração com Grafana e Prometheus</li>
+                <li><strong>Automação:</strong> Scripts Python para backup programado</li>
+                <li><strong>Documentação:</strong> Procedures de recuperação de desastres</li>
+                <li><strong>Integração:</strong> Conexão direta com Proxmox VE clusters</li>
+            </ul>
+            
+            <div style="margin-top: 20px;">
+                <span class="badge">Proxmox Backup Server 3.x</span>
+                <span class="badge">Deduplicação</span>
+                <span class="badge">AES-256-GCM</span>
+                <span class="badge">Python</span>
+                <span class="badge">REST API</span>
+                <span class="badge">Grafana</span>
+                <span class="badge">Prometheus</span>
+                <span class="badge">ZFS</span>
+                <span class="badge">Backup Incremental</span>
+                <span class="badge">Recuperação Granular</span>
+            </div>
+            
+            <div class="github-note">
+                <strong>Nota:</strong> Este projeto implementa uma solução enterprise de backup e recuperação de desastres com alta eficiência de armazenamento via deduplicação, mostrando habilidades em gerenciamento de storage, criptografia, automação e monitoramento de infraestrutura crítica.
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<!-- Modal da Galeria (FORA DO MAIN, SOBRE TUDO) -->
+<div class="modal-galeria" id="modal-galeria">
+    <span class="modal-fechar" id="modal-fechar">
+        <i class="fas fa-times"></i>
+    </span>
+    
+    <button class="modal-nav modal-prev" id="modal-prev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <button class="modal-nav modal-next" id="modal-next">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="modal-imagem-container">
+        <img class="modal-imagem" id="modal-imagem" src="" alt="Imagem ampliada">
+    </div>
+</div>
+
+<!-- Botão Voltar ao Topo -->
+<a href="#" class="scroll-to-top" title="Voltar ao Topo">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<footer>© 2026 - Thalison Nunes</footer>
+<!-- Partículas globais -->
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// === CONFIGURAÇÃO GITHUB (único trecho específico por página) ===
+const SEU_USUARIO = "thalisonnunes20";
+const SEU_REPOSITORIO = "proxmox-backup";
+</script>
+<script src="/assets/js/pages/project.js"></script>
+</body>
+</html>
