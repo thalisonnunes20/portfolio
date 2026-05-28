@@ -1,0 +1,420 @@
+<!-- ===================== index.html (HOME) ===================== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Thalison Nunes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Poppins,sans-serif;background:#0f172a;color:#e5e7eb;scroll-behavior:smooth}
+    header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px}
+    h1{font-size:3rem;background:linear-gradient(90deg, #38bdf8, #0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    p{color:#94a3b8;margin-top:10px}
+    section{max-width:1200px;margin:auto;padding:80px 20px}
+    .section-title{text-align:center;font-size:2.5rem;margin-bottom:50px;color:#f8fafc}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+    
+    /* CARD PADRONIZADO */
+    .card{background:#020617;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:all 0.4s ease;cursor:pointer;position:relative;border:1px solid #1e293b;height:100%;display:flex;flex-direction:column}
+    .card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(56,189,248,0.15);border-color:#38bdf8}
+    .card img{width:100%;height:200px;object-fit:cover;transition:transform 0.5s ease}
+    .card:hover img{transform:scale(1.08)}
+    
+    /* CONTEÚDO PADRONIZADO */
+    .content{flex:1;display:flex;flex-direction:column;padding:25px}
+    .content h3{font-size:1.4rem;margin-bottom:15px;color:#f1f5f9;min-height:3em}
+    .content p{color:#94a3b8;font-size:0.95rem;line-height:1.6;margin-bottom:20px;flex:1;min-height:4.5em}
+    
+    /* BOTÃO SABER MAIS PADRONIZADO */
+    .btn-saber-mais{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;background:linear-gradient(90deg, #1e40af, #3b82f6);color:white;border-radius:8px;font-weight:600;transition:all 0.3s ease;font-size:0.95rem;margin-top:auto;width:100%;text-align:center;text-decoration:none}
+    .btn-saber-mais:hover{background:linear-gradient(90deg, #3b82f6, #60a5fa);transform:translateY(-2px);box-shadow:0 5px 15px rgba(59,130,246,0.3);text-decoration:none}
+    
+    /* TAGS PADRONIZADAS */
+    .tech-tags{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+    .tech-tag{background:#1e293b;padding:6px 12px;border-radius:12px;font-size:0.75rem;color:#94a3b8}
+    
+    /* SOCIAL ICONS - REMOVIDA BARRA INFERIOR */
+    .social-icons{display:flex;gap:20px;margin-top:30px}
+    .social-icons a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#1e293b;color:#38bdf8;font-size:1.3rem;transition:all 0.3s ease;text-decoration:none}
+    .social-icons a:hover{background:#38bdf8;color:#0f172a;transform:scale(1.1) rotate(5deg);text-decoration:none}
+    
+    footer{text-align:center;padding:40px 20px;color:#64748b;border-top:1px solid #1e293b;margin-top:60px}
+    
+    /* Botão Voltar ao Topo */
+    .scroll-to-top{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg, #3b82f6, #1d4ed8);color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 5px 20px rgba(59,130,246,0.6);z-index:1000;transition:all 0.3s ease;opacity:0;visibility:hidden;text-decoration:none;border:2px solid rgba(255,255,255,0.1)}
+    .scroll-to-top.visible{opacity:1;visibility:visible}
+    .scroll-to-top:hover{background:linear-gradient(135deg, #60a5fa, #2563eb);transform:scale(1.15) translateY(-5px);box-shadow:0 10px 25px rgba(59,130,246,0.8);text-decoration:none}
+    .scroll-to-top:focus{outline:none;text-decoration:none}
+    
+    /* Menu de Navegação */
+    .nav-menu{position:fixed;top:0;width:100%;background:rgba(15,23,42,0.95);backdrop-filter:blur(12px);z-index:1000;padding:18px 0;border-bottom:1px solid rgba(56,189,248,0.1);transition:all 0.3s ease}
+    .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: center; align-items: center; }
+    .nav-links{display:flex;gap:35px}
+    .nav-links a{color:#cbd5e1;text-decoration:none;transition:all 0.3s;font-weight:600;font-size:1rem;position:relative;padding:5px 0}
+    .nav-links a:hover{color:#38bdf8}
+    .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg, #38bdf8, #0ea5e9);transition:width 0.3s ease}
+    .nav-links a:hover::after{width:100%}
+    
+    .hero-subtitle{font-size:1.2rem;max-width:600px;margin:20px auto 0;line-height:1.6}
+    .card-link{text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%}
+    
+    /* Seção Sobre */
+    .sobre-container{background:#1e293b;border-radius:24px;margin:60px auto;display:flex;align-items:center;justify-content:center;min-height:450px;text-align:center;padding:60px 40px;box-shadow:0 15px 40px rgba(0,0,0,0.2)}
+    .sobre-texto{max-width:800px;color:#cbd5e1;line-height:1.8;font-size:1.1rem;padding:0 20px}
+  </style>
+</head>
+<body>
+<!-- Menu de Navegação -->
+<nav class="nav-menu">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Header Principal -->
+<header id="inicio">
+  <h1 data-aos="fade-up">Thalison Nunes</h1>
+  <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+    Especialista em Infraestrutura de TI, Virtualização e Automação com foco em soluções escaláveis e seguras.
+  </p>
+  <div class="social-icons" data-aos="fade-up" data-aos-delay="400">
+    <a href="https://github.com/thalisonnunes20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/thalison-nunes-687492181/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:nunesthalison77@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+</header>
+
+<!-- Seção Projetos -->
+<section id="projetos">
+  <h2 class="section-title" data-aos="fade-up">Meus Projetos</h2>
+  <p style="text-align:center;max-width:800px;margin:0 auto 50px;color:#94a3b8;line-height:1.6" data-aos="fade-up" data-aos-delay="100">
+    Explore abaixo alguns dos projetos de infraestrutura que desenvolvi e implementei. 
+    Cada solução foi projetada para atender necessidades específicas de performance, segurança e escalabilidade.
+  </p>
+  
+  <div class="grid">
+
+    <!-- Proxmox VE -->
+    <div class="card" data-aos="fade-up">
+      <a href="/proxmox" class="card-link">
+        <img src="images/proxmox.jpg" alt="Proxmox VE">
+        <div class="content">
+          <h3>Proxmox VE</h3>
+          <p>Plataforma completa de virtualização enterprise com clustering, alta disponibilidade e gerenciamento centralizado de VMs e containers.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Virtualização</span>
+            <span class="tech-tag">KVM</span>
+            <span class="tech-tag">LXC</span>
+            <span class="tech-tag">HA</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- pfSense -->
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <a href="/pfsense" class="card-link">
+        <img src="images/pfsense.jpg" alt="pfSense">
+        <div class="content">
+          <h3>pfSense Firewall</h3>
+          <p>Firewall avançado com regras granulares, VPN site-to-site, filtro de conteúdo e segmentação de rede para ambientes corporativos.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Firewall</span>
+            <span class="tech-tag">VPN</span>
+            <span class="tech-tag">Segurança</span>
+            <span class="tech-tag">OpenVPN</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Nginx Proxy Manager -->
+    <div class="card" data-aos="fade-up" data-aos-delay="150">
+      <a href="/nginx" class="card-link">
+        <img src="images/nginx.jpg" alt="Nginx Proxy Manager">
+        <div class="content">
+          <h3>Nginx Proxy Manager</h3>
+          <p>Solução de proxy reverso com interface web para gerenciamento de domínios, certificados SSL automáticos e balanceamento de carga.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Proxy</span>
+            <span class="tech-tag">SSL/TLS</span>
+            <span class="tech-tag">DNS</span>
+            <span class="tech-tag">Web</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- TrueNAS -->
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <a href="/truenas" class="card-link">
+        <img src="images/truenas.jpg" alt="TrueNAS">
+        <div class="content">
+          <h3>TrueNAS Storage</h3>
+          <p>Sistema de armazenamento empresarial com ZFS, snapshots, replicação e compartilhamentos multi-protocolo (SMB, NFS, iSCSI).</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Storage</span>
+            <span class="tech-tag">ZFS</span>
+            <span class="tech-tag">Backup</span>
+            <span class="tech-tag">RAID</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Nextcloud -->
+    <div class="card" data-aos="fade-up" data-aos-delay="250">
+      <a href="/nextcloud" class="card-link">
+        <img src="images/nextcloud.jpg" alt="Nextcloud">
+        <div class="content">
+          <h3>Nextcloud</h3>
+          <p>Plataforma de colaboração e nuvem privada com sincronização de arquivos, calendário, contatos e ferramentas de produtividade.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Cloud</span>
+            <span class="tech-tag">Colaboração</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- WireGuard -->
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <a href="/wireguard" class="card-link">
+        <img src="images/wireguard.jpg" alt="WireGuard">
+        <div class="content">
+          <h3>WireGuard VPN</h3>
+          <p>VPN moderna de alta performance com criptografia de última geração, baixa latência e fácil configuração via interface web.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">VPN</span>
+            <span class="tech-tag">Criptografia</span>
+            <span class="tech-tag">Rede</span>
+            <span class="tech-tag">Segurança</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Windows Server 2025 -->
+    <div class="card" data-aos="fade-up" data-aos-delay="350">
+      <a href="/winserver2025" class="card-link">
+        <img src="images/winserver.jpg" alt="Windows Server 2025">
+        <div class="content">
+          <h3>Windows Server 2025</h3>
+          <p>Infraestrutura Windows completa com Active Directory, DNS, DHCP, File Services e Hyper-V para virtualização de cargas Windows.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Windows</span>
+            <span class="tech-tag">Active Directory</span>
+            <span class="tech-tag">Hyper-V</span>
+            <span class="tech-tag">AD DS</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Pelicano -->
+    <div class="card" data-aos="fade-up" data-aos-delay="400">
+      <a href="/pelicano" class="card-link">
+        <img src="images/pelicano.jpg" alt="Pelicano">
+        <div class="content">
+          <h3>Pelicano Panel</h3>
+          <p>Painel de gerenciamento de servidores com monitoramento em tempo real, alertas, e administração centralizada de serviços.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Painel</span>
+            <span class="tech-tag">Monitoramento</span>
+            <span class="tech-tag">Dashboard</span>
+            <span class="tech-tag">Admin</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Discord Bot -->
+    <div class="card" data-aos="fade-up" data-aos-delay="450">
+      <a href="/botdiscord" class="card-link">
+        <img src="images/discord.jpg" alt="Discord Bot">
+        <div class="content">
+          <h3>Discord Bot</h3>
+          <p>Bot de automação para Discord com comandos customizados, moderação, integrações APIs e sistema de tickets.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Bot</span>
+            <span class="tech-tag">Discord.py</span>
+            <span class="tech-tag">API</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Proxmox Backup Server -->
+    <div class="card" data-aos="fade-up" data-aos-delay="500">
+      <a href="/proxmox-backup-server" class="card-link">
+        <img src="images/proxmox-backup-server.jpg" alt="Proxmox Backup Server">
+        <div class="content">
+          <h3>Proxmox Backup Server</h3>
+          <p>Solução corporativa de backup que maximiza eficiência com deduplicação em bloco e segurança total com criptografia integrada.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Debian 13</span>
+            <span class="tech-tag">Backup</span>
+            <span class="tech-tag">Proxmox</span>
+            <span class="tech-tag">ZFS</span>
+            <span class="tech-tag">Raid</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Portfólio -->
+    <div class="card" data-aos="fade-up" data-aos-delay="550">
+      <a href="/portfolio" class="card-link">
+        <img src="images/portifolio.jpg" alt="Portfólio">
+        <div class="content">
+          <h3>Portfólio</h3>
+          <p>Este portfólio integra meus projetos técnicos em um ecossistema unificado de operação, demonstrando habilidades práticas em infraestrutura e automação.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Ubuntu 24.04 LTS</span>
+            <span class="tech-tag">Nginx</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <div class="btn-saber-mais">
+            Saber mais <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Seção Sobre -->
+<section id="sobre">
+  <div class="sobre-container" data-aos="fade-up">
+    <div>
+      <h2 class="section-title" data-aos="fade-up">Sobre Mim</h2>
+      <p data-aos="fade-up" data-aos-delay="200" class="sobre-texto">
+        Profissional especializado em infraestrutura de TI com experiência em virtualização, redes, 
+        storage e automação. Focado em implementar soluções robustas, seguras e escaláveis que atendam 
+        às necessidades de negócios com máxima eficiência e disponibilidade.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Contato -->
+<section id="contato">
+  <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
+  <div style="text-align:center;margin-top:30px" data-aos="fade-up" data-aos-delay="200">
+    <p style="color:#94a3b8;margin-bottom:30px">Interessado em colaborar ou tem alguma pergunta?</p>
+    <a href="mailto:nunesthalison77@gmail.com" class="btn-saber-mais" style="font-size:1rem;padding:12px 30px;width:auto;text-decoration:none">
+      <i class="fas fa-envelope"></i> Enviar Email
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 - Thalison Nunes. Todos os direitos reservados.</p>
+  <p style="margin-top:10px;font-size:0.9rem;color:#94a3b8">Desenvolvido por Thalison Nunes</p>
+</footer>
+
+<!-- Botão fixo para voltar ao topo -->
+<a href="#inicio" class="scroll-to-top" title="Voltar ao Topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // Inicializar AOS
+  AOS.init({
+    duration: 1000,
+    once: false,
+    offset: 100
+  });
+  
+  // Recarregar animações ao rolar
+  window.addEventListener('scroll', function() {
+    AOS.refresh();
+  });
+  
+  // Botão de voltar ao topo
+  const scrollBtn = document.querySelector('.scroll-to-top');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 500) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  });
+  
+  // Smooth scroll para links internos
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Fixar menu ao rolar
+  const nav = document.querySelector('.nav-menu');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.15)';
+      nav.style.background = 'rgba(15,23,42,0.98)';
+    } else {
+      nav.style.boxShadow = 'none';
+      nav.style.background = 'rgba(15,23,42,0.95)';
+    }
+  });
+</script>
+</body>
+</html>
