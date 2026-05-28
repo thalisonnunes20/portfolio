@@ -8,12 +8,17 @@
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body{margin:0;font-family:Poppins,sans-serif;background:#0f172a;color:#e5e7eb}
-header{text-align:center;padding:100px 20px 60px;}
-main{max-width:1200px;margin:auto;padding:40px 20px;}
+html{overflow-x:hidden}
+body{margin:0;font-family:Poppins,sans-serif;background:#0f172a;color:#e5e7eb;overflow-x:hidden}
+
+/* Canvas de partículas global */
+#particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+header{text-align:center;padding:100px 20px 60px;position:relative;z-index:1}
+main{max-width:1200px;margin:auto;padding:40px 20px;position:relative;z-index:1}
 img{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
 a{color:#38bdf8;text-decoration:none;font-weight:600}
-footer{text-align:center;padding:40px;color:#64748b}
+footer{text-align:center;padding:40px;color:#64748b;position:relative;z-index:1}
 
 @media(min-width:901px){
     main { display: flex; flex-direction: column; }
@@ -23,15 +28,52 @@ footer{text-align:center;padding:40px;color:#64748b}
 }
 @media(max-width:900px){ .content-desktop { display: grid; grid-template-columns: 1fr; gap: 40px; } }
 
+/* ===== BOTÕES COM VIDRO + ANEL DOURADO ===== */
+@keyframes ringRotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
 .home-btn {
     position: fixed; top: 20px; left: 20px;
-    background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(10px);
-    width: 50px; height: 50px; border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; font-size: 1.4rem;
-    color: #38bdf8; transition: all 0.3s ease; z-index: 1000;
-    border: 1px solid #334155; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: #f0c060;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07);
+    transition: color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    z-index: 1000;
+    text-decoration: none;
 }
-.home-btn:hover { background: #38bdf8; color: #0f172a; transform: scale(1.1); box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3); }
+.home-btn::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 30%,
+        #f0c060 50%,
+        #fde68a 60%,
+        #f0c060 70%,
+        transparent 85%,
+        transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: ringRotate 2.8s linear infinite;
+    pointer-events: none;
+}
+.home-btn:hover {
+    background: rgba(240,192,96,0.15);
+    color: #fde68a;
+    box-shadow: 0 6px 24px rgba(240,192,96,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+}
 
 .descricao-detalhada {
     background: #1e293b; padding: 30px; border-radius: 16px;
@@ -53,12 +95,22 @@ h1 {
 }
 h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 
-/* Estilos para a seção Documentação - CORRIGIDO PARA NÃO MOVER */
+/* Estilos para a seção Documentação - CORRIGIDO (6 correções aplicadas) */
 .documentacao-tabs {
     margin: 60px auto 40px;
     max-width: 900px;
-    min-height: 600px; /* Altura mínima fixa para evitar movimento */
-    position: relative; /* Para posicionamento dos conteúdos */
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Centralização dos títulos */
+.description-container > h2 {
+    text-align: center;
+}
+
+.documentacao-tabs > h2 {
+    text-align: center;
 }
 
 .tabs-header {
@@ -66,6 +118,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     border-bottom: 2px solid #334155;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    justify-content: center; /* Centraliza os botões das abas */
 }
 
 .tab-btn {
@@ -90,10 +143,12 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     border-bottom: 3px solid #38bdf8;
 }
 
-/* CONTEÚDOS DAS ABAS - POSIÇÃO FIXA */
+/* CONTEÚDOS DAS ABAS - CORRIGIDO */
 .tabs-content-container {
     position: relative;
-    min-height: 500px; /* Altura fixa para todos os conteúdos */
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .tab-content {
@@ -101,22 +156,21 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     border-radius: 16px;
     padding: 30px;
     display: none;
-    animation: fadeIn 0.5s ease;
-    position: absolute; /* Posição absoluta para manter no mesmo lugar */
-    top: 0;
-    left: 0;
-    right: 0;
-    min-height: 500px; /* Altura consistente */
+    width: 100%;
+    overflow: hidden;
+    word-break: break-word;
     box-sizing: border-box;
+    will-change: opacity, transform;
 }
 
 .tab-content.active {
     display: block;
+    animation: fadeIn 0.25s ease forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0);   }
 }
 
 /* Estilos para o embed do GitHub */
@@ -138,7 +192,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     font-size: 0.9rem;
 }
 
-/* Estilos para a galeria de imagens - RESTAURADA COM 3 IMAGENS */
+/* Estilos para a galeria de imagens - CARREGAMENTO SOB DEMANDA (sem GIF pesado) */
 .galeria-projeto {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -170,6 +224,17 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 
 .galeria-item:hover img {
     transform: scale(1.05);
+}
+
+.galeria-placeholder {
+    background: #0f172a;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 0.9rem;
+    gap: 8px;
 }
 
 .galeria-descricao {
@@ -289,33 +354,48 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 /* Botão Voltar ao Topo */
 .scroll-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    box-shadow: 0 5px 20px rgba(59,130,246,0.4);
+    bottom: 30px; right: 30px;
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: #f0c060;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07);
     z-index: 1000;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
+    transition: color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0; visibility: hidden;
+    text-decoration: none;
 }
-
+.scroll-to-top::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 30%,
+        #f0c060 50%,
+        #fde68a 60%,
+        #f0c060 70%,
+        transparent 85%,
+        transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: ringRotate 2.8s linear infinite;
+    pointer-events: none;
+}
 .scroll-to-top.visible {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1; visibility: visible;
 }
-
 .scroll-to-top:hover {
-    background: linear-gradient(135deg, #60a5fa, #2563eb);
-    transform: scale(1.1) translateY(-3px);
-    box-shadow: 0 8px 25px rgba(59,130,246,0.5);
+    background: rgba(240,192,96,0.15);
+    color: #fde68a;
+    box-shadow: 0 8px 28px rgba(240,192,96,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 /* Responsividade para a galeria */
@@ -360,19 +440,10 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
         right: 15px;
     }
     
-    /* Ajustes para mobile na seção de documentação */
-    .documentacao-tabs {
-        min-height: 550px;
-    }
-    
-    .tabs-content-container {
-        min-height: 450px;
-    }
-    
+    /* Ajustes para mobile na seção de documentação - min-height removido */
     .tab-content {
-        position: relative; /* Muda para relativo em mobile */
+        position: relative;
         top: auto;
-        min-height: 450px;
         padding: 20px;
     }
     
@@ -410,16 +481,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
         max-width: 100%;
     }
     
-    .documentacao-tabs {
-        min-height: 500px;
-    }
-    
-    .tabs-content-container {
-        min-height: 400px;
-    }
-    
     .tab-content {
-        min-height: 400px;
         padding: 15px;
     }
     
@@ -435,6 +497,28 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     }
 }
 
+/* ===== ABA VERSÕES ===== */
+.versoes-timeline{display:flex;flex-direction:column;gap:0}
+.versao-card{background:#0f172a;border:1px solid #334155;border-radius:16px;padding:24px 28px;position:relative}
+.versao-atual{border-color:#38bdf8;box-shadow:0 0 0 1px rgba(56,189,248,.15),0 4px 24px rgba(56,189,248,.08)}
+.versao-badge{position:absolute;top:-13px;left:24px;background:linear-gradient(90deg,#38bdf8,#0ea5e9);color:#0f172a;font-size:.75rem;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:.05em}
+.versao-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.versao-tag{background:rgba(56,189,248,.15);color:#38bdf8;font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:8px;border:1px solid rgba(56,189,248,.3)}
+.versao-data{color:#64748b;font-size:.85rem}
+.versao-titulo{color:#f8fafc;font-size:1.15rem;margin:0 0 8px}
+.versao-desc{color:#94a3b8;font-size:.92rem;line-height:1.7;margin:0}
+.versao-connector{display:flex;justify-content:center;padding:6px 0}
+.versao-connector-line{width:2px;height:28px;background:linear-gradient(to bottom,#334155,#1e293b);border-radius:2px}
+.versao-preview-wrap{margin-top:20px;border-radius:12px;overflow:hidden;border:1px solid #334155;background:#0d1117}
+.versao-preview-header{background:#1e293b;padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #334155}
+.versao-preview-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.versao-preview-url{margin-left:10px;background:#0f172a;color:#64748b;font-size:.78rem;padding:4px 14px;border-radius:6px;border:1px solid #334155;flex:1;text-align:center;font-family:monospace}
+.versao-preview-body{position:relative;height:340px;overflow:hidden}
+.versao-preview-body iframe{width:150%;height:150%;transform:scale(.667);transform-origin:top left;border:none;pointer-events:none}
+.versao-fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;background:#0f172a;padding:20px;text-align:center}
+.versao-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,#0ea5e9,#38bdf8);color:#0f172a;padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(56,189,248,.25)}
+.versao-btn:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(56,189,248,.35);color:#0f172a}
+@media(max-width:600px){.versao-preview-body{height:220px}.versao-card{padding:20px 16px}}
 .fa-spinner {
     animation: spin 1s linear infinite;
 }
@@ -445,6 +529,9 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 </style>
 </head>
 <body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
 
 <a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
 
@@ -458,7 +545,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 <main>
   <div class="content-desktop">
     <div class="image-container" data-aos="fade-up">
-      <img src="/images/portifolio.jpg">
+      <img src="/images/Portfolio.gif">
     </div>
     
     <div class="description-container" data-aos="fade-up" data-aos-delay="200">
@@ -519,7 +606,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     </div>
   </div>
 
-  <!-- Nova Seção Documentação -->
+  <!-- Nova Seção Documentação (CORRIGIDA) -->
 <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
     <h2>Documentação</h2>
     
@@ -527,6 +614,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
         <button class="tab-btn active" data-tab="github">Vizualização GitHub</button>
         <button class="tab-btn" data-tab="galeria">Galeria do Projeto</button>
         <button class="tab-btn" data-tab="recursos">Recursos Técnicos</button>
+        <button class="tab-btn" data-tab="versoes">Versões</button>
     </div>
     
     <div class="tabs-content-container">
@@ -580,36 +668,105 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
         <div class="tab-content" id="tab-galeria">
             <p style="text-align: center;">Imagens e capturas de tela do projeto do Portfólio:</p>
             
-            <div class="galeria-projeto">
-                <!-- IMAGEM 1 -->
-                <div class="galeria-item">
-                    <img src="/images/portifolio-dash.jpg" alt="Dashboard Portifólio">
+            <div class="galeria-projeto" id="galeria-container">
+                <!-- IMAGEM 1 (carregamento sob demanda) -->
+                <div class="galeria-item" data-img-src="images/portfolio-dash.gif" data-img-alt="Dashboard Portfólio">
+                    <div class="galeria-placeholder">
+                        <i class="fas fa-image"></i> Clique na aba "Galeria" para carregar
+                    </div>
                     <div class="galeria-descricao">
                         <strong>Dashboard Principal</strong><br>
-                        Interface do Projeto que vocês veem agora.
+                        Interface do Projeto que você vê agora.
                     </div>
                 </div>
-                
-                <!-- IMAGEM 2 -->
-                <!-- <div class="galeria-item">
-                    <img src="/images/nginx-proxies.jpg" alt="Gerenciamento de Proxies">
-                    <div class="galeria-descricao">
-                        <strong>Gerenciamento de Proxies</strong><br>
-                        Configuração de redirecionamentos e proxies
-                    </div>
-                </div> -->
-                
-                <!-- IMAGEM 3 -->
-                <!-- <div class="galeria-item">
-                    <img src="/images/nginx-ssl.jpg" alt="Gerenciamento de SSL">
-                    <div class="galeria-descricao">
-                        <strong>Gerenciamento de SSL</strong><br>
-                        Configuração de certificados Let's Encrypt
-                    </div>
-                </div> -->
+                <!-- Você pode adicionar mais imagens seguindo o mesmo padrão -->
             </div>
         </div>
         
+       <!-- ABA VERSÕES -->
+        <div class="tab-content" id="tab-versoes">
+            <h3 style="color:#f8fafc; margin-bottom:6px; text-align:center;">Histórico de Versões</h3>
+            <p style="color:#94a3b8; text-align:center; margin-bottom:28px; font-size:0.95rem;">
+                Acompanhe a evolução do portfólio ao longo do tempo.
+            </p>
+
+            <div class="versoes-timeline">
+
+                <!-- Versão Atual -->
+                <div class="versao-card versao-atual">
+                    <div class="versao-badge">✦ Atual</div>
+                    <div class="versao-info">
+                        <div class="versao-header">
+                            <span class="versao-tag">v2.0</span>
+                            <span class="versao-data">2026</span>
+                        </div>
+                        <h4 class="versao-titulo">Portfólio Redesenhado</h4>
+                        <p class="versao-desc">
+                            Nova identidade visual com fundo escuro, partículas animadas, sistema de abas com documentação técnica,
+                            galeria de projetos, integração com a API do GitHub e design responsivo aprimorado.
+                        </p>
+                        <div style="margin-top:12px;">
+                            <span class="badge">HTML</span>
+                            <span class="badge">CSS</span>
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">Nginx</span>
+                            <span class="badge">GitHub API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linha conectora -->
+                <div class="versao-connector">
+                    <div class="versao-connector-line"></div>
+                </div>
+
+                <!-- Versão Antiga -->
+                <div class="versao-card">
+                    <div class="versao-info">
+                        <div class="versao-header">
+                            <span class="versao-tag" style="background:#334155; color:#94a3b8;">v1.0</span>
+                            <span class="versao-data">2025</span>
+                        </div>
+                        <h4 class="versao-titulo">Portfólio Original</h4>
+                        <p class="versao-desc">
+                            Primeira versão pública do portfólio. Ainda disponível e hospedada para referência histórica.
+                        </p>
+
+                        <!-- Preview com iframe + fallback -->
+                        <div class="versao-preview-wrap">
+                            <div class="versao-preview-header">
+                                <span class="versao-preview-dot" style="background:#ff5f57"></span>
+                                <span class="versao-preview-dot" style="background:#ffbd2e"></span>
+                                <span class="versao-preview-dot" style="background:#28ca41"></span>
+                                <span class="versao-preview-url">old.tsnunes.com.br</span>
+                            </div>
+                            <div class="versao-preview-body">
+                                <iframe
+                                    id="versao-iframe"
+                                    title="Portfólio v1.0"
+                                    loading="lazy"
+                                    sandbox="allow-scripts allow-same-origin"
+                                ></iframe>
+                                <div id="versao-fallback" class="versao-fallback">
+                                    <i class="fas fa-external-link-alt" style="font-size:2rem; color:#38bdf8; margin-bottom:10px;"></i>
+                                    <p style="color:#94a3b8; margin:0 0 4px;">Preview não disponível no iframe.</p>
+                                    <p style="color:#64748b; font-size:0.85rem; margin:0;">Use o botão abaixo para visitar a versão antiga.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:18px; text-align:center;">
+                            <a href="https://old.tsnunes.com.br/" target="_blank" rel="noopener" class="versao-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                Visitar Portfólio v1.0
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
        <div class="tab-content" id="tab-recursos">
     <h3>Recursos Técnicos do Portfólio</h3>
     <ul>
@@ -675,26 +832,45 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 <script>AOS.init({duration:1000,once:true,offset:100});</script>
 
 <script>
-// Funcionalidade das abas de documentação
+// Funcionalidade das abas de documentação — sem travamento
 document.addEventListener('DOMContentLoaded', function() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabBtns     = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-    
+    let   iframeLoaded = false;
+
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove classe active de todos os botões e conteúdos
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-            
-            // Adiciona classe active ao botão clicado
-            btn.classList.add('active');
-            
-            // Mostra o conteúdo correspondente
-            const tabId = btn.getAttribute('data-tab');
-            const tabContent = document.getElementById(`tab-${tabId}`);
-            if (tabContent) {
-                tabContent.classList.add('active');
-            }
+            const tabId     = btn.getAttribute('data-tab');
+            const nextContent = document.getElementById('tab-' + tabId);
+            if (!nextContent || btn.classList.contains('active')) return;
+
+            // Bateia todas as mudanças de DOM em um único frame
+            requestAnimationFrame(() => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                nextContent.classList.add('active');
+
+                // Carrega o iframe SOMENTE na primeira vez que a aba Versões é aberta
+                if (tabId === 'versoes' && !iframeLoaded) {
+                    iframeLoaded = true;
+                    const iframe = document.getElementById('versao-iframe');
+                    if (iframe) {
+                        // Mostra fallback enquanto carrega
+                        const fallback = document.getElementById('versao-fallback');
+                        if (fallback) fallback.style.display = 'flex';
+
+                        iframe.onload = () => {
+                            if (fallback) fallback.style.display = 'none';
+                        };
+                        iframe.onerror = () => {
+                            if (fallback) fallback.style.display = 'flex';
+                        };
+                        // Injeta src somente agora (evita bloqueio no carregamento da página)
+                        iframe.src = 'https://old.tsnunes.com.br/';
+                    }
+                }
+            });
         });
     });
 });
@@ -811,56 +987,119 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
+// ===================== CARREGAMENTO SOB DEMANDA DA GALERIA =====================
+(function() {
+    let galeriaCarregada = false;
+    const abaGaleria = document.querySelector('.tab-btn[data-tab="galeria"]');
+    const containerGaleria = document.getElementById('galeria-container');
+
+    function carregarImagensGaleria() {
+        if (galeriaCarregada || !containerGaleria) return;
+        
+        const itens = containerGaleria.querySelectorAll('.galeria-item[data-img-src]');
+        itens.forEach(item => {
+            const src = item.getAttribute('data-img-src');
+            const alt = item.getAttribute('data-img-alt') || 'Imagem do projeto';
+            const placeholder = item.querySelector('.galeria-placeholder');
+            
+            if (placeholder && src) {
+                // Cria a tag img real com atributos otimizados
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = alt;
+                img.loading = 'lazy';
+                img.decoding = 'async';
+                img.style.width = '100%';
+                img.style.height = '200px';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '0';
+                
+                // Substitui o placeholder
+                placeholder.parentNode.insertBefore(img, placeholder);
+                placeholder.remove();
+                
+                // Remove o atributo data-img-src para não recarregar
+                item.removeAttribute('data-img-src');
+            }
+        });
+        galeriaCarregada = true;
+    }
+
+    // Quando clicar na aba "Galeria", carrega as imagens
+    if (abaGaleria) {
+        abaGaleria.addEventListener('click', function() {
+            carregarImagensGaleria();
+        });
+    }
+
+    // Se a galeria já estiver ativa por algum motivo (ex: página recarregada com a aba ativa)
+    if (document.getElementById('tab-galeria') && document.getElementById('tab-galeria').classList.contains('active')) {
+        carregarImagensGaleria();
+    }
+})();
+</script>
+
+<script>
 // Funcionalidade da galeria (TELA CHEIA COM IMAGEM AJUSTADA)
 document.addEventListener('DOMContentLoaded', function() {
-    const galeriaItens = document.querySelectorAll('.galeria-item img');
+    // Observa a galeria container para quando as imagens forem carregadas dinamicamente
+    const containerGaleria = document.getElementById('galeria-container');
     const modal = document.getElementById('modal-galeria');
     const modalImg = document.getElementById('modal-imagem');
     const modalFechar = document.getElementById('modal-fechar');
     const modalPrev = document.getElementById('modal-prev');
     const modalNext = document.getElementById('modal-next');
     
+    let imagensAtuais = []; // Array para armazenar as imagens carregadas
     let indiceAtual = 0;
     
-    // Abrir modal ao clicar em uma imagem
-    galeriaItens.forEach((img, index) => {
-        img.addEventListener('click', () => {
-            indiceAtual = index;
-            modalImg.src = img.src;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Previne scroll
-            
-            // Ajusta a imagem após carregar
-            modalImg.onload = function() {
+    function atualizarGaleriaModal() {
+        // Coleta todas as imagens que estão dentro da galeria (após carregamento)
+        const galeriaItens = containerGaleria ? containerGaleria.querySelectorAll('.galeria-item img') : [];
+        imagensAtuais = Array.from(galeriaItens);
+        
+        // Remove listeners antigos e adiciona novos
+        imagensAtuais.forEach((img, index) => {
+            // Remove eventos antigos para evitar duplicidade
+            img.removeEventListener('click', img.clickHandler);
+            // Adiciona novo evento
+            img.clickHandler = () => {
+                indiceAtual = index;
+                modalImg.src = img.src;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
                 ajustarImagemNoModal();
             };
-            
-            // Se a imagem já estiver em cache
-            if (modalImg.complete) {
-                ajustarImagemNoModal();
-            }
+            img.addEventListener('click', img.clickHandler);
         });
-    });
+    }
     
-    // Função para ajustar a imagem no modal
     function ajustarImagemNoModal() {
         const larguraTela = window.innerWidth;
-        
-        // Para telas muito pequenas (celulares)
         if (larguraTela < 480) {
             modalImg.style.maxWidth = '100%';
             modalImg.style.maxHeight = '80vh';
-        }
-        // Para tablets
-        else if (larguraTela < 768) {
+        } else if (larguraTela < 768) {
             modalImg.style.maxWidth = '95%';
             modalImg.style.maxHeight = '85vh';
-        }
-        // Para desktops
-        else {
+        } else {
             modalImg.style.maxWidth = '90%';
             modalImg.style.maxHeight = '90vh';
         }
+    }
+    
+    // Observa mudanças no container da galeria (quando imagens são inseridas)
+    if (containerGaleria) {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                    atualizarGaleriaModal();
+                }
+            });
+        });
+        observer.observe(containerGaleria, { childList: true, subtree: true });
+        // Executa uma vez para caso já tenha imagens
+        atualizarGaleriaModal();
     }
     
     // Reajustar imagem quando redimensionar a janela
@@ -876,7 +1115,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto';
     });
     
-    // Fechar clicando fora da imagem
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
@@ -884,7 +1122,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Fechar com ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.style.display === 'block') {
             modal.style.display = 'none';
@@ -892,28 +1129,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Navegação anterior
     modalPrev.addEventListener('click', () => {
-        indiceAtual = (indiceAtual - 1 + galeriaItens.length) % galeriaItens.length;
-        modalImg.src = galeriaItens[indiceAtual].src;
+        if (imagensAtuais.length === 0) return;
+        indiceAtual = (indiceAtual - 1 + imagensAtuais.length) % imagensAtuais.length;
+        modalImg.src = imagensAtuais[indiceAtual].src;
         ajustarImagemNoModal();
     });
     
-    // Navegação próxima
     modalNext.addEventListener('click', () => {
-        indiceAtual = (indiceAtual + 1) % galeriaItens.length;
-        modalImg.src = galeriaItens[indiceAtual].src;
+        if (imagensAtuais.length === 0) return;
+        indiceAtual = (indiceAtual + 1) % imagensAtuais.length;
+        modalImg.src = imagensAtuais[indiceAtual].src;
         ajustarImagemNoModal();
     });
     
-    // Navegação com teclado
     document.addEventListener('keydown', (e) => {
         if (modal.style.display === 'block') {
-            if (e.key === 'ArrowLeft') {
-                modalPrev.click();
-            } else if (e.key === 'ArrowRight') {
-                modalNext.click();
-            }
+            if (e.key === 'ArrowLeft') modalPrev.click();
+            else if (e.key === 'ArrowRight') modalNext.click();
         }
     });
 });
@@ -932,16 +1165,62 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Smooth scroll para o topo
     scrollBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
 </script>
 
+<!-- Partículas globais -->
+<script>
+(function () {
+  const canvas = document.getElementById('particles-canvas');
+  const ctx    = canvas.getContext('2d');
+  const COLORS = [
+    [56,189,248],[14,165,233],[99,102,241],[148,163,184],[186,230,253],[96,165,250]
+  ];
+  const COUNT = 160;
+  let W, H, particles = [];
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function rand(a,b){ return Math.random()*(b-a)+a; }
+  function randInt(a,b){ return Math.floor(rand(a,b+0.999)); }
+  class Particle {
+    constructor(initial){ this.spawn(initial); }
+    spawn(initial){
+      const c = COLORS[randInt(0,COLORS.length-1)];
+      this.r=c[0];this.g=c[1];this.b=c[2];
+      this.x=rand(0,W); this.y=initial?rand(0,H):H+5;
+      this.sz=rand(0.6,2.8); this.vx=rand(-0.3,0.3); this.vy=rand(-0.55,-0.08);
+      this.phase=rand(0,Math.PI*2); this.phaseSpeed=rand(0.018,0.055);
+      this.glow=Math.random()<0.28; this.glowR=this.sz*rand(5,9);
+    }
+    update(){
+      this.x+=this.vx; this.y+=this.vy; this.phase+=this.phaseSpeed;
+      if(this.y<-12||this.x<-12||this.x>W+12){ this.spawn(false); }
+    }
+    draw(){
+      const a=0.3+0.65*Math.abs(Math.sin(this.phase));
+      ctx.save();
+      if(this.glow){
+        const g=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.glowR);
+        g.addColorStop(0,`rgba(${this.r},${this.g},${this.b},${(a*0.55).toFixed(2)})`);
+        g.addColorStop(1,`rgba(${this.r},${this.g},${this.b},0)`);
+        ctx.beginPath(); ctx.arc(this.x,this.y,this.glowR,0,Math.PI*2);
+        ctx.fillStyle=g; ctx.fill();
+      }
+      ctx.beginPath(); ctx.arc(this.x,this.y,this.sz,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${this.r},${this.g},${this.b},${a.toFixed(2)})`; ctx.fill();
+      ctx.restore();
+    }
+  }
+  function init(){ particles=[]; for(let i=0;i<COUNT;i++) particles.push(new Particle(true)); }
+  function loop(){ ctx.clearRect(0,0,W,H); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(loop); }
+  function onResize(){ resize(); init(); }
+  resize(); init(); loop();
+  window.addEventListener('resize',onResize);
+  window.addEventListener('load',onResize);
+})();
+</script>
 </body>
 </html>

@@ -8,12 +8,17 @@
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body{margin:0;font-family:Poppins,sans-serif;background:#0f172a;color:#e5e7eb}
-header{text-align:center;padding:100px 20px 60px;}
-main{max-width:1200px;margin:auto;padding:40px 20px;}
+html{overflow-x:hidden}
+body{margin:0;font-family:Poppins,sans-serif;background:#0f172a;color:#e5e7eb;overflow-x:hidden}
+
+/* Canvas de partículas global */
+#particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+header{text-align:center;padding:100px 20px 60px;position:relative;z-index:1}
+main{max-width:1200px;margin:auto;padding:40px 20px;position:relative;z-index:1}
 img{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
 a{color:#38bdf8;text-decoration:none;font-weight:600}
-footer{text-align:center;padding:40px;color:#64748b}
+footer{text-align:center;padding:40px;color:#64748b;position:relative;z-index:1}
 
 @media(min-width:901px){
     main { display: flex; flex-direction: column; }
@@ -23,15 +28,52 @@ footer{text-align:center;padding:40px;color:#64748b}
 }
 @media(max-width:900px){ .content-desktop { display: grid; grid-template-columns: 1fr; gap: 40px; } }
 
+/* ===== BOTÕES COM VIDRO + ANEL DOURADO ===== */
+@keyframes ringRotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
 .home-btn {
     position: fixed; top: 20px; left: 20px;
-    background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(10px);
-    width: 50px; height: 50px; border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; font-size: 1.4rem;
-    color: #38bdf8; transition: all 0.3s ease; z-index: 1000;
-    border: 1px solid #334155; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: #f0c060;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07);
+    transition: color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    z-index: 1000;
+    text-decoration: none;
 }
-.home-btn:hover { background: #38bdf8; color: #0f172a; transform: scale(1.1); box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3); }
+.home-btn::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 30%,
+        #f0c060 50%,
+        #fde68a 60%,
+        #f0c060 70%,
+        transparent 85%,
+        transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: ringRotate 2.8s linear infinite;
+    pointer-events: none;
+}
+.home-btn:hover {
+    background: rgba(240,192,96,0.15);
+    color: #fde68a;
+    box-shadow: 0 6px 24px rgba(240,192,96,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+}
 
 .descricao-detalhada {
     background: #1e293b; padding: 30px; border-radius: 16px;
@@ -53,12 +95,21 @@ h1 {
 }
 h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 
-/* Estilos para a seção Documentação - CORRIGIDO PARA NÃO MOVER */
+/* Estilos para a seção Documentação - CORRIGIDO */
 .documentacao-tabs {
     margin: 60px auto 40px;
     max-width: 900px;
-    min-height: 600px; /* Altura mínima fixa para evitar movimento */
-    position: relative; /* Para posicionamento dos conteúdos */
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.documentacao-tabs > h2 {
+    text-align: center;
+}
+
+.description-container > h2 {
+    text-align: center;
 }
 
 .tabs-header {
@@ -66,6 +117,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     border-bottom: 2px solid #334155;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .tab-btn {
@@ -93,7 +145,9 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 /* CONTEÚDOS DAS ABAS - POSIÇÃO FIXA */
 .tabs-content-container {
     position: relative;
-    min-height: 500px; /* Altura fixa para todos os conteúdos */
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .tab-content {
@@ -102,11 +156,9 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     padding: 30px;
     display: none;
     animation: fadeIn 0.5s ease;
-    position: absolute; /* Posição absoluta para manter no mesmo lugar */
-    top: 0;
-    left: 0;
-    right: 0;
-    min-height: 500px; /* Altura consistente */
+    width: 100%;
+    overflow: hidden;
+    word-break: break-word;
     box-sizing: border-box;
 }
 
@@ -116,7 +168,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Estilos para o embed do GitHub */
@@ -138,7 +190,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     font-size: 0.9rem;
 }
 
-/* Estilos para a galeria de imagens - RESTAURADA COM 3 IMAGENS */
+/* Estilos para a galeria de imagens */
 .galeria-projeto {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -179,7 +231,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     text-align: center;
 }
 
-/* Estilos para o modal da galeria (TELA CHEIA COM IMAGEM AJUSTADA) */
+/* Estilos para o modal da galeria */
 .modal-galeria {
     display: none;
     position: fixed;
@@ -289,33 +341,48 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 /* Botão Voltar ao Topo */
 .scroll-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    box-shadow: 0 5px 20px rgba(59,130,246,0.4);
+    bottom: 30px; right: 30px;
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: #f0c060;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07);
     z-index: 1000;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
+    transition: color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0; visibility: hidden;
+    text-decoration: none;
 }
-
+.scroll-to-top::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 30%,
+        #f0c060 50%,
+        #fde68a 60%,
+        #f0c060 70%,
+        transparent 85%,
+        transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: ringRotate 2.8s linear infinite;
+    pointer-events: none;
+}
 .scroll-to-top.visible {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1; visibility: visible;
 }
-
 .scroll-to-top:hover {
-    background: linear-gradient(135deg, #60a5fa, #2563eb);
-    transform: scale(1.1) translateY(-3px);
-    box-shadow: 0 8px 25px rgba(59,130,246,0.5);
+    background: rgba(240,192,96,0.15);
+    color: #fde68a;
+    box-shadow: 0 8px 28px rgba(240,192,96,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 /* Responsividade para a galeria */
@@ -360,19 +427,18 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
         right: 15px;
     }
     
-    /* Ajustes para mobile na seção de documentação */
+    /* Ajustes para mobile na seção de documentação - min-height removido */
     .documentacao-tabs {
-        min-height: 550px;
+        /* sem min-height */
     }
     
     .tabs-content-container {
-        min-height: 450px;
+        /* sem min-height */
     }
     
     .tab-content {
         position: relative; /* Muda para relativo em mobile */
         top: auto;
-        min-height: 450px;
         padding: 20px;
     }
     
@@ -411,15 +477,14 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     }
     
     .documentacao-tabs {
-        min-height: 500px;
+        /* sem min-height */
     }
     
     .tabs-content-container {
-        min-height: 400px;
+        /* sem min-height */
     }
     
     .tab-content {
-        min-height: 400px;
         padding: 15px;
     }
     
@@ -445,6 +510,9 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 </style>
 </head>
 <body>
+
+<!-- Canvas global de partículas -->
+<canvas id="particles-canvas"></canvas>
 
 <a href="/" class="home-btn" title="Voltar ao Portfólio"><i class="fas fa-home"></i></a>
 
@@ -516,7 +584,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
     </div>
   </div>
 
-  <!-- Nova Seção Documentação -->
+  <!-- Seção Documentação -->
 <div class="documentacao-tabs" data-aos="fade-up" data-aos-delay="300">
     <h2>Documentação</h2>
     
@@ -638,7 +706,7 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 
 </main>
 
-<!-- Modal da Galeria (FORA DO MAIN, SOBRE TUDO) -->
+<!-- Modal da Galeria -->
 <div class="modal-galeria" id="modal-galeria">
     <span class="modal-fechar" id="modal-fechar">
         <i class="fas fa-times"></i>
@@ -667,20 +735,20 @@ h2 { color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px; }
 <script>AOS.init({duration:1000,once:true,offset:100});</script>
 
 <script>
-// Funcionalidade das abas de documentação
+// Funcionalidade das abas de documentação (sem ajuste de altura)
 document.addEventListener('DOMContentLoaded', function() {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-    
+
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             // Remove classe active de todos os botões e conteúdos
             tabBtns.forEach(b => b.classList.remove('active'));
             tabContents.forEach(c => c.classList.remove('active'));
-            
+
             // Adiciona classe active ao botão clicado
             btn.classList.add('active');
-            
+
             // Mostra o conteúdo correspondente
             const tabId = btn.getAttribute('data-tab');
             const tabContent = document.getElementById(`tab-${tabId}`);
@@ -935,5 +1003,55 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<!-- Partículas globais -->
+<script>
+(function () {
+  const canvas = document.getElementById('particles-canvas');
+  const ctx    = canvas.getContext('2d');
+  const COLORS = [
+    [56,189,248],[14,165,233],[99,102,241],[148,163,184],[186,230,253],[96,165,250]
+  ];
+  const COUNT = 160;
+  let W, H, particles = [];
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function rand(a,b){ return Math.random()*(b-a)+a; }
+  function randInt(a,b){ return Math.floor(rand(a,b+0.999)); }
+  class Particle {
+    constructor(initial){ this.spawn(initial); }
+    spawn(initial){
+      const c = COLORS[randInt(0,COLORS.length-1)];
+      this.r=c[0];this.g=c[1];this.b=c[2];
+      this.x=rand(0,W); this.y=initial?rand(0,H):H+5;
+      this.sz=rand(0.6,2.8); this.vx=rand(-0.3,0.3); this.vy=rand(-0.55,-0.08);
+      this.phase=rand(0,Math.PI*2); this.phaseSpeed=rand(0.018,0.055);
+      this.glow=Math.random()<0.28; this.glowR=this.sz*rand(5,9);
+    }
+    update(){
+      this.x+=this.vx; this.y+=this.vy; this.phase+=this.phaseSpeed;
+      if(this.y<-12||this.x<-12||this.x>W+12){ this.spawn(false); }
+    }
+    draw(){
+      const a=0.3+0.65*Math.abs(Math.sin(this.phase));
+      ctx.save();
+      if(this.glow){
+        const g=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.glowR);
+        g.addColorStop(0,`rgba(${this.r},${this.g},${this.b},${(a*0.55).toFixed(2)})`);
+        g.addColorStop(1,`rgba(${this.r},${this.g},${this.b},0)`);
+        ctx.beginPath(); ctx.arc(this.x,this.y,this.glowR,0,Math.PI*2);
+        ctx.fillStyle=g; ctx.fill();
+      }
+      ctx.beginPath(); ctx.arc(this.x,this.y,this.sz,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${this.r},${this.g},${this.b},${a.toFixed(2)})`; ctx.fill();
+      ctx.restore();
+    }
+  }
+  function init(){ particles=[]; for(let i=0;i<COUNT;i++) particles.push(new Particle(true)); }
+  function loop(){ ctx.clearRect(0,0,W,H); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(loop); }
+  function onResize(){ resize(); init(); }
+  resize(); init(); loop();
+  window.addEventListener('resize',onResize);
+  window.addEventListener('load',onResize);
+})();
+</script>
 </body>
 </html>
